@@ -1,6 +1,7 @@
 import MainView from './main-view.vue';
-import {shallowMount} from '@vue/test-utils';
+import {flushPromises, shallowMount} from '@vue/test-utils';
 import {describe, it, expect} from 'vitest';
+import DisclaimerInformation from '../components/disclaimer-information.vue';
 
 describe('Main page', () =>{
  it('does not show disclaimer on page load', () =>{
@@ -15,5 +16,14 @@ describe('Main page', () =>{
    const w = shallowMount(MainView);
    await w.find('[data-test-id="disclaimer-button"]').trigger('click');
    expect(w.find('[data-test-id="disclaimer-information"]').exists()).toBeTruthy();
+ });
+ it('closes disclaimer when close emitted', async () => {
+   const w = shallowMount(MainView);
+   
+   await w.find('[data-test-id="disclaimer-button"]').trigger('click');
+   w.getComponent(DisclaimerInformation).vm.$emit('close');
+   await flushPromises();
+   
+   expect(w.find('[data-test-id="disclaimer-information"]').exists()).toBeFalsy();
  });
 });
