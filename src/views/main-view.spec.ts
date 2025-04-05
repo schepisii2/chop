@@ -39,7 +39,26 @@ describe('Dropdowns', () => {
    });
    it('sets selected month on click', async () => {
       const w = shallowMount(MainView);
-      await w.find('[data-test-id="Month 4-dropdown-option"]').trigger('click')
+      await w.find('[data-test-id="Month 4-dropdown-option"]').trigger('click');
       expect((w.vm as any).selectedMonth).toBe('Month 4');
+   });
+   it('renders day dropdown', () => {
+      const w = shallowMount(MainView);
+      expect(w.find('[data-test-id="day-dropdown"]').exists()).toBeTruthy();
+   });
+   it.skip('renders the correct amount of days for a month', async () => {
+      const w = shallowMount(MainView);
+      
+      // Month 4 has 28 days
+      await w.find('[data-test-id="Month 4-dropdown-option"]').trigger('click');
+      for (let i = 1; i <= 28; i++) {
+         expect(w.find(`[data-test-id="${i}-dropdown-option"]`).exists()).toBeTruthy();
+      }
+
+      // Month 2 has 35 days
+      await w.find('[data-test-id="Month 2-dropdown-option"]').trigger('click');
+      for (let i = 1; i <= 35; i++) {
+         expect(w.find(`[data-test-id="${i}-dropdown-option"]`).exists()).toBeTruthy();
+      }
    });
 });
