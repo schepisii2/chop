@@ -1,4 +1,4 @@
-const ExerciseType = {
+export const ExerciseType = {
     Rest: 'Rest Day',
     Strength: 'Strength Training',
     Cardio: 'Cardio Day'

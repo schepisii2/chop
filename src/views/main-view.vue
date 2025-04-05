@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue';
 import DisclaimerInformation from '../components/disclaimer-information.vue';
-import { TRAINING_CALENDAR } from '../models/training-days';
+import { TRAINING_CALENDAR, ExerciseType } from '../models/training-days';
 
 const showDisclaimer = ref(false);
 
@@ -11,6 +11,21 @@ const months = [...new Set(TRAINING_CALENDAR.map((d) => d.month))];
 const selectedDay = ref(1);
 const days = computed(() => {
   return TRAINING_CALENDAR.filter((d) => d.month === selectedMonth.value).map((d) => d.day);
+});
+
+const typeText = computed(() => {
+  let text = ''
+  const type = TRAINING_CALENDAR.find((d) => d.month === selectedMonth.value && d.day === selectedDay.value).type;
+  if (type === ExerciseType.Rest) {
+    text = 'Rest Day';
+  }
+  if (type === ExerciseType.Cardio) {
+    text = 'Cardio Day';
+  }
+  if (type === ExerciseType.Strength) {
+    text = 'Strength Training';
+  }
+  return text;
 });
 </script>
 
@@ -23,7 +38,7 @@ const days = computed(() => {
       <button type="button" class="btn btn-secondary" data-test-id="disclaimer-button" @click="showDisclaimer=true">See Disclaimer</button>
     </div>
     
-    <div class="d-flex flex-row">
+    <div data-test-id="dropdowns" class="d-flex flex-row my-2">
       <div class="dropdown me-2" data-test-id="month-dropdown">
         <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           {{ selectedMonth }}
@@ -42,5 +57,7 @@ const days = computed(() => {
         </ul>
       </div>
     </div>
+     
+    <h3 data-test-id="training-day-type">{{ typeText }}</h3>
   </div>
 </template>

@@ -62,3 +62,18 @@ describe('Dropdowns', () => {
       }
    });
 });
+
+it('renders training day type', async () => {
+   const w = shallowMount(MainView);
+
+   // Month 1 - Day 1 is a rest day
+   expect(w.find('[data-test-id="training-day-type"]').text()).toBe('Rest Day');
+
+   // Month 6 - Day 1 is a cardio day
+   await w.find('[data-test-id="Month 6-dropdown-option"]').trigger('click');
+   expect(w.find('[data-test-id="training-day-type"]').text()).toBe('Cardio Day');
+
+   // Month 8 - Day 1 is a strength day   
+   await w.find('[data-test-id="Month 8-dropdown-option"]').trigger('click');
+   expect(w.find('[data-test-id="training-day-type"]').text()).toBe('Strength Training');
+})
