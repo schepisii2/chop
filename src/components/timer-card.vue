@@ -2,7 +2,7 @@
 import { defineProps, defineEmits, ref } from 'vue';
 
 const props = defineProps(['duration'])
-defineEmits(['close'])
+const emits = defineEmits(['close'])
 
 const showStartButton = ref(true);
 
@@ -21,6 +21,7 @@ function startTimer() {
         else {
             alert(`${props.duration} minute timer complete!`);
             clearInterval(timer);
+            emits('close');
         }
     }, 1000);
 }
@@ -31,7 +32,6 @@ function startTimer() {
     <div class="card-header"> 
       <div class="d-flex justify-content-between">
         <h5 class="card-title" data-test-id="timer-title">{{ props.duration }} Minute Timer</h5>
-        <button type="button" class="btn-close" aria-label="Close" data-test-id="close-button" @click="$emit('close')"></button>
       </div>
     </div>
     <div class="card-body d-flex flex-column">
