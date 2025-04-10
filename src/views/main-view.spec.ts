@@ -109,7 +109,7 @@ describe('Timers', () => {
       const w = shallowMount(MainView);
 
       await w.find('[data-test-id="2-dropdown-option"]').trigger('click');
-      await w.findComponent('timer-card-stub').vm.$emit('close');
+      await (w.getComponent('timer-card-stub') as any).vm.$emit('close');
       
       // check timers display correctly
       expect(w.findAllComponents('timer-card-stub')[0].isVisible()).toBeFalsy();
