@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue';
 import DisclaimerInformation from '../components/disclaimer-information.vue';
+import timerCard from '../components/timer-card.vue';
 import { TRAINING_CALENDAR, ExerciseType } from '../models/training-days';
 
 const showDisclaimer = ref(false);
@@ -13,9 +14,10 @@ const days = computed(() => {
   return TRAINING_CALENDAR.filter((d) => d.month === selectedMonth.value).map((d) => d.day);
 });
 
+const trainingDay = computed(() => { return TRAINING_CALENDAR.find((d) => d.month === selectedMonth.value && d.day === selectedDay.value); } );
 const typeText = computed(() => {
   let text = ''
-  const type = TRAINING_CALENDAR.find((d) => d.month === selectedMonth.value && d.day === selectedDay.value).type;
+  const type = trainingDay.value.type;
   if (type === ExerciseType.Rest) {
     text = 'Rest Day';
   }
@@ -26,6 +28,20 @@ const typeText = computed(() => {
     text = 'Strength Training';
   }
   return text;
+});
+
+const timerIndex = ref(0);
+const currentTimer = computed(() => { 
+  if (trainingDay.value.timers && trainingDay.value.timers.length > timerIndex.value) {
+    return trainingDay.value.timers[timerIndex.value];
+  } 
+  return null; 
+});
+const upcomingTimer = computed(() => { 
+  if (trainingDay.value.timers && trainingDay.value.timers.length > timerIndex.value + 1) {
+    return trainingDay.value.timers[timerIndex.value + 1];
+  } 
+  return null; 
 });
 </script>
 
@@ -59,5 +75,9 @@ const typeText = computed(() => {
     </div>
      
     <h3 data-test-id="training-day-type">{{ typeText }}</h3>
+    <div v-if="currentTimer">
+    <timer-card v-show="timer === currentTimer" v-for="timer in trainingDay.timers" v-bind:key="timer" :duration="timer.duration" :zone="timer.zone" class="my-2" @close="timerIndex++"></timer-card>
+    <p v-if="upcomingTimer" class="d-flex justify-content-end" data-test-id="upcoming-timer">Upcoming: {{ upcomingTimer.duration }} Minute Timer - {{ upcomingTimer.zone.label }}</p>
+    </div>
   </div>
 </template>

@@ -76,4 +76,49 @@ it('renders training day type', async () => {
    // Month 8 - Day 1 is a strength day   
    await w.find('[data-test-id="Month 8-dropdown-option"]').trigger('click');
    expect(w.find('[data-test-id="training-day-type"]').text()).toBe('Strength Training');
-})
+});
+
+describe('Timers', () => {
+   it('renders timers cardio days', async () => {
+      const w = shallowMount(MainView);
+      
+      // Month 1 - Day 1 is a rest day, should not render any timers
+      expect(w.findAllComponents('timer-card-stub')).toHaveLength(0);
+
+      // Month 1 - Day 2 is a cardio day, should render 5 timers 
+      await w.find('[data-test-id="2-dropdown-option"]').trigger('click');
+      expect(w.findAllComponents('timer-card-stub')).toHaveLength(5);
+   });
+   it('renders upcoming timer', async () => {
+      const w = shallowMount(MainView);
+      await w.find('[data-test-id="2-dropdown-option"]').trigger('click');
+      expect(w.find('[data-test-id="upcoming-timer"').text()).toBe('Upcoming: 3 Minute Timer - Base Pace');
+   });
+   it('only shows current timer', async () => {
+      const w = shallowMount(MainView);
+
+      await w.find('[data-test-id="2-dropdown-option"]').trigger('click');
+      
+      expect(w.findAllComponents('timer-card-stub')[0].isVisible()).toBeTruthy();
+      expect(w.findAllComponents('timer-card-stub')[1].isVisible()).toBeFalsy();
+      expect(w.findAllComponents('timer-card-stub')[2].isVisible()).toBeFalsy();
+      expect(w.findAllComponents('timer-card-stub')[3].isVisible()).toBeFalsy();
+      expect(w.findAllComponents('timer-card-stub')[4].isVisible()).toBeFalsy();
+   });
+   it('updates current timer when close is emitted by timer', async () => {
+      const w = shallowMount(MainView);
+
+      await w.find('[data-test-id="2-dropdown-option"]').trigger('click');
+      await w.findComponent('timer-card-stub').vm.$emit('close');
+      
+      // check timers display correctly
+      expect(w.findAllComponents('timer-card-stub')[0].isVisible()).toBeFalsy();
+      expect(w.findAllComponents('timer-card-stub')[1].isVisible()).toBeTruthy();
+      expect(w.findAllComponents('timer-card-stub')[2].isVisible()).toBeFalsy();
+      expect(w.findAllComponents('timer-card-stub')[3].isVisible()).toBeFalsy();
+      expect(w.findAllComponents('timer-card-stub')[4].isVisible()).toBeFalsy();
+
+      // check upcoming timer updates      
+      expect(w.find('[data-test-id="upcoming-timer"').text()).toBe('Upcoming: 2 Minute Timer - Recovery');
+   });
+});
