@@ -550,6 +550,193 @@ export const TRAINING_CALENDAR = [
 		type: ExerciseType.Rest,
 	},
 	{
+		month: 'Month 3',
+		day: 2,
+		type: ExerciseType.Cardio,
+		timers: [
+			{ duration: 10, zone: TrainingZone.WarmUp },
+			{ duration: 30, zone: TrainingZone.BP },
+			{ duration: 10, zone: TrainingZone.CoolDown },
+		],
+	},
+	{
+		month: 'Month 3',
+		day: 3,
+		type: ExerciseType.Strength,
+	},
+	{
+		month: 'Month 3',
+		day: 4,
+		type: ExerciseType.Cardio,
+		timers: [
+			{ duration: 10, zone: TrainingZone.WarmUp },
+			{ duration: 30, zone: TrainingZone.BP },
+			{ duration: 10, zone: TrainingZone.CoolDown },
+		],
+	},
+	{
+		month: 'Month 3',
+		day: 5,
+		type: ExerciseType.Strength,
+	},
+	{
+		month: 'Month 3',
+		day: 6,
+		type: ExerciseType.Cardio,
+		timers: [
+			{ duration: 10, zone: TrainingZone.WarmUp },
+			{ duration: 30, zone: TrainingZone.BP },
+			{ duration: 10, zone: TrainingZone.CoolDown },
+		],
+	},
+	{
+		month: 'Month 3',
+		day: 7,
+		type: ExerciseType.Rest,
+	},
+	{
+		month: 'Month 3',
+		day: 8,
+		type: ExerciseType.Rest,
+	},
+	{
+		month: 'Month 3',
+		day: 9,
+		type: ExerciseType.Cardio,
+		timers: [
+			{ duration: 10, zone: TrainingZone.WarmUp },
+			{ duration: 30, zone: TrainingZone.BP },
+			{ duration: 10, zone: TrainingZone.CoolDown },
+		],
+	},
+	{
+		month: 'Month 3',
+		day: 10,
+		type: ExerciseType.Strength,
+	},
+	{
+		month: 'Month 3',
+		day: 11,
+		type: ExerciseType.Cardio,
+		timers: [
+			{ duration: 10, zone: TrainingZone.WarmUp },
+			{ duration: 30, zone: TrainingZone.BP },
+			{ duration: 10, zone: TrainingZone.CoolDown },
+		],
+	},
+	{
+		month: 'Month 3',
+		day: 12,
+		type: ExerciseType.Strength,
+	},
+	{
+		month: 'Month 3',
+		day: 13,
+		type: ExerciseType.Cardio,
+		timers: [
+			{ duration: 10, zone: TrainingZone.WarmUp },
+			{ duration: 20, zone: TrainingZone.MSS },
+			{ duration: 10, zone: TrainingZone.CoolDown },
+		],
+	},
+	{
+		month: 'Month 3',
+		day: 14,
+		type: ExerciseType.Cardio,
+		timers: [{ duration: 40, zone: TrainingZone.Recovery }],
+	},
+	{
+		month: 'Month 3',
+		day: 15,
+		type: ExerciseType.Rest,
+	},
+	{
+		month: 'Month 3',
+		day: 16,
+		type: ExerciseType.Cardio,
+		timers: [
+			{ duration: 10, zone: TrainingZone.WarmUp },
+			{ duration: 30, zone: TrainingZone.BP },
+			{ duration: 10, zone: TrainingZone.CoolDown },
+		],
+	},
+	{
+		month: 'Month 3',
+		day: 17,
+		type: ExerciseType.Strength,
+	},
+	{
+		month: 'Month 3',
+		day: 18,
+		type: ExerciseType.Cardio,
+		timers: [
+			{ duration: 10, zone: TrainingZone.WarmUp },
+			{ duration: 30, zone: TrainingZone.BP },
+			{ duration: 10, zone: TrainingZone.CoolDown },
+		],
+	},
+	{
+		month: 'Month 3',
+		day: 19,
+		type: ExerciseType.Strength,
+	},
+	{
+		month: 'Month 3',
+		day: 20,
+		type: ExerciseType.Cardio,
+		timers: [
+			{ duration: 10, zone: TrainingZone.WarmUp },
+			{ duration: 30, zone: TrainingZone.BP },
+			{ duration: 10, zone: TrainingZone.CoolDown },
+		],
+	},
+	{
+		month: 'Month 3',
+		day: 21,
+		type: ExerciseType.Rest,
+	},
+	{
+		month: 'Month 3',
+		day: 22,
+		type: ExerciseType.Rest,
+	},
+	{
+		month: 'Month 3',
+		day: 23,
+		type: ExerciseType.Cardio,
+		timers: [
+			{ duration: 10, zone: TrainingZone.WarmUp },
+			{ duration: 30, zone: TrainingZone.BP },
+			{ duration: 10, zone: TrainingZone.CoolDown },
+		],
+	},
+	{
+		month: 'Month 3',
+		day: 24,
+		type: ExerciseType.Strength,
+	},
+	{
+		month: 'Month 3',
+		day: 25,
+		type: ExerciseType.Cardio,
+		timers: [
+			{ duration: 10, zone: TrainingZone.WarmUp },
+			{ duration: 25, zone: TrainingZone.MSS },
+			{ duration: 10, zone: TrainingZone.CoolDown },
+		],
+	},
+	{
+		month: 'Month 3',
+		day: 26,
+		type: ExerciseType.Cardio,
+		timers: [{ duration: 40, zone: TrainingZone.Recovery }],
+	},
+	{
+		month: 'Month 3',
+		day: 27,
+		type: ExerciseType.Strength,
+	},
+	{
 		month: 'Month 4',
 		day: 1,
 		type: ExerciseType.Rest,
