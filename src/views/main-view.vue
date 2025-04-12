@@ -53,6 +53,34 @@ const upcomingTimer = computed(() => {
 </script>
 
 <template>
+	<nav class="m-1" aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li v-if="!showTitle" class="breadcrumb-item">
+				<a href="#" data-test-id="title-breadcrumb" @click="showTitle = true"
+					>Title Page</a
+				>
+			</li>
+			<li
+				v-if="!showTitle"
+				class="breadcrumb-item"
+				:class="{ showTrainingDaySelector: 'active' }"
+			>
+				<a
+					href="#"
+					data-test-id="selector-breadcrumb"
+					@click="showTrainingDaySelector = true"
+					>Day Selector</a
+				>
+			</li>
+			<li
+				v-if="!showTitle && !showTrainingDaySelector"
+				class="breadcrumb-item active"
+				data-test-id="selected-day-breadcrumb"
+			>
+				{{ trainingDay.month }} - Day {{ trainingDay.day }}
+			</li>
+		</ol>
+	</nav>
 	<disclaimer-information
 		v-if="showDisclaimer"
 		data-test-id="disclaimer-information"

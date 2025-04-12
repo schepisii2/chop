@@ -25,6 +25,83 @@ describe('Title Page', () => {
 	});
 });
 
+describe('Breadcrumbs', () => {
+	it('does not show breadcrumbs on page load', () => {
+		const w = shallowMount(MainView);
+		expect(w.find('[data-test-id="title-breadcrumb"]').exists()).toBeFalsy();
+		expect(w.find('[data-test-id="selector-breadcrumb"]').exists()).toBeFalsy();
+		expect(
+			w.find('[data-test-id="selected-day-breadcrumb"]').exists(),
+		).toBeFalsy();
+	});
+	it('show title and selector breadcrumbs when "get-started" emitted', async () => {
+		const w = shallowMount(MainView);
+
+		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
+			'get-started',
+		);
+
+		expect(w.find('[data-test-id="title-breadcrumb"]').exists()).toBeTruthy();
+		expect(
+			w.find('[data-test-id="selector-breadcrumb"]').exists(),
+		).toBeTruthy();
+		expect(
+			w.find('[data-test-id="selected-day-breadcrumb"]').exists(),
+		).toBeFalsy();
+	});
+	it('return to title when title breadcrumb clicked', async () => {
+		const w = shallowMount(MainView);
+
+		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
+			'get-started',
+		);
+		await w.get('[data-test-id="title-breadcrumb"]').trigger('click');
+
+		expect(w.find('[data-test-id="title-page"]').exists()).toBeTruthy();
+	});
+	it('show all breadcrumbs after day selected', async () => {
+		const w = shallowMount(MainView);
+
+		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
+			'get-started',
+		);
+		await (
+			w.getComponent('[data-test-id="training-day-selector"') as any
+		).vm.$emit('start', {
+			month: 'Month 8',
+			day: 1,
+			type: ExerciseType.Strength,
+		});
+
+		expect(w.find('[data-test-id="title-breadcrumb"]').exists()).toBeTruthy();
+		expect(
+			w.find('[data-test-id="selector-breadcrumb"]').exists(),
+		).toBeTruthy();
+		expect(
+			w.find('[data-test-id="selected-day-breadcrumb"]').exists(),
+		).toBeTruthy();
+	});
+	it('return to title when title breadcrumb clicked', async () => {
+		const w = shallowMount(MainView);
+
+		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
+			'get-started',
+		);
+		await (
+			w.getComponent('[data-test-id="training-day-selector"') as any
+		).vm.$emit('start', {
+			month: 'Month 8',
+			day: 1,
+			type: ExerciseType.Strength,
+		});
+		await w.get('[data-test-id="selector-breadcrumb"]').trigger('click');
+
+		expect(
+			w.find('[data-test-id="training-day-selector"]').exists(),
+		).toBeTruthy();
+	});
+});
+
 describe('Disclaimer', () => {
 	it('does not show disclaimer on page load', () => {
 		const w = shallowMount(MainView);
