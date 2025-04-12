@@ -865,7 +865,7 @@ export const TRAINING_CALENDAR = [
 	{
 		month: 'Month 4',
 		day: 17,
-		type: ExerciseType.Res,
+		type: ExerciseType.Rest,
 	},
 	{
 		month: 'Month 4',

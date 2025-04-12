@@ -63,7 +63,7 @@ describe('Dropdowns', () => {
 		const w = shallowMount(MainView);
 		expect(w.find('[data-test-id="day-dropdown"]').exists()).toBeTruthy();
 	});
-	it.skip('renders the correct amount of days for a month', async () => {
+	it('renders the correct amount of days for a month', async () => {
 		const w = shallowMount(MainView);
 
 		// Month 4 has 28 days
