@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import DisclaimerInformation from '../components/disclaimer-information.vue';
 import TitlePage from '../components/title-page.vue';
 import TrainingDaySelector from '../components/training-day-selector.vue';
@@ -116,17 +117,28 @@ const upcomingTimer = computed(() => {
 				class="my-2"
 				@close="timerIndex++"
 			></timer-card>
-			<p
-				v-if="upcomingTimer"
-				class="d-flex justify-content-end"
-				data-test-id="upcoming-timer"
-				@click="timerIndex++"
+			<div
+				:class="timerIndex === 0 ? '' : 'd-flex justify-content-around mt-2'"
 			>
-				<a href="#"
-					>Upcoming: {{ upcomingTimer.duration }} Minute Timer -
-					{{ upcomingTimer.zone.label }}</a
+				<a href="#">
+					<font-awesome-icon
+						v-if="timerIndex !== 0"
+						icon="backward-step"
+						data-test-id="back-button"
+						@click="timerIndex--"
+				/></a>
+				<p
+					v-if="upcomingTimer"
+					:class="timerIndex === 0 ? 'd-flex justify-content-end' : ''"
+					data-test-id="upcoming-timer"
+					@click="timerIndex++"
 				>
-			</p>
+					<a href="#"
+						>Upcoming: {{ upcomingTimer.duration }} Minute Timer -
+						{{ upcomingTimer.zone.label }}</a
+					>
+				</p>
+			</div>
 			<zone-chart />
 			<rpe-chart />
 		</div>
