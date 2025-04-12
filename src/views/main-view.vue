@@ -120,9 +120,12 @@ const upcomingTimer = computed(() => {
 				v-if="upcomingTimer"
 				class="d-flex justify-content-end"
 				data-test-id="upcoming-timer"
+				@click="timerIndex++"
 			>
-				Upcoming: {{ upcomingTimer.duration }} Minute Timer -
-				{{ upcomingTimer.zone.label }}
+				<a href="#"
+					>Upcoming: {{ upcomingTimer.duration }} Minute Timer -
+					{{ upcomingTimer.zone.label }}</a
+				>
 			</p>
 			<zone-chart />
 			<rpe-chart />
