@@ -18,18 +18,22 @@ describe('Timer Card', () => {
 		});
 		expect(w.find('[data-test-id="time-remaining"]').text()).toBe('10:00');
 	});
-	it('Shows start button', () => {
+	it('Shows start button - hides stop button', () => {
 		const w = shallowMount(TimerCard, {
 			props: { duration: 10, zone: TrainingZone.WarmUp },
 		});
 		expect(w.find('[data-test-id="start-button"]').text()).toBe('Start');
+		expect(w.find('[data-test-id="stop-button"]').exists()).toBeFalsy();
 	});
-	it('Hides start button on-click', async () => {
+	it('Hides start button on-click - shows stop button', async () => {
 		const w = shallowMount(TimerCard, {
 			props: { duration: 10, zone: TrainingZone.WarmUp },
 		});
+
 		await w.get('[data-test-id="start-button"').trigger('click');
+
 		expect(w.find('[data-test-id="start-button"]').exists()).toBeFalsy();
+		expect(w.find('[data-test-id="stop-button"]').text()).toBe('Stop');
 	});
 	it('Emits close and shows alert when timer is up', async () => {
 		vi.useFakeTimers();

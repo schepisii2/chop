@@ -8,9 +8,10 @@ const showStartButton = ref(true);
 
 const minutesLeft = ref(props.duration);
 const secondsLeft = ref(0);
+let timer = {};
 function startTimer() {
 	showStartButton.value = false;
-	let timer = setInterval(() => {
+	timer = setInterval(() => {
 		if (secondsLeft.value > 0) {
 			secondsLeft.value = secondsLeft.value - 1;
 		} else if (minutesLeft.value > 0) {
@@ -22,6 +23,10 @@ function startTimer() {
 			emits('close');
 		}
 	}, 1000);
+}
+function pauseTimer() {
+	clearInterval(timer);
+	showStartButton.value = true;
 }
 </script>
 
@@ -51,6 +56,15 @@ function startTimer() {
 				@click="startTimer"
 			>
 				Start
+			</button>
+			<button
+				v-if="!showStartButton"
+				type="button"
+				class="btn btn-outline-dark"
+				data-test-id="stop-button"
+				@click="pauseTimer"
+			>
+				Stop
 			</button>
 			<hr v-if="props.zone.heartRate || props.zone.perceivedExertion" />
 			<div class="d-flex justify-content-around">
