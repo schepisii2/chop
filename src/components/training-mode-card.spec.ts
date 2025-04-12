@@ -14,14 +14,28 @@ describe('Training Mode Card', () => {
 			'Training Mode 3',
 		);
 	});
-	it('Renders close button', async () => {
+	it('Renders collapse button', () => {
 		const w = shallowMount(TrainingModeCard, {
 			props: {
 				mode: TrainingMode.Three,
 			},
 		});
-		await w.find('[data-test-id="close-button"').trigger('click');
-		expect(w.emitted('close')).toBeTruthy();
+		expect(w.find('[data-test-id="collapse-button"').exists()).toBeTruthy();
+	});
+	it('Collapses', async () => {
+		const w = shallowMount(TrainingModeCard, {
+			props: {
+				mode: TrainingMode.Three,
+			},
+		});
+		await w.find('[data-test-id="collapse-button"').trigger('click');
+		expect(w.find('[data-test-id="expand-button"').exists()).toBeTruthy();
+		expect(
+			w.find('[data-test-id="training-mode-description"]').exists(),
+		).toBeFalsy();
+		expect(
+			w.find('[data-test-id="training-mode-examples"]').exists(),
+		).toBeFalsy();
 	});
 	it('Renders description', () => {
 		const w = shallowMount(TrainingModeCard, {

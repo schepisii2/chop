@@ -1,4 +1,13 @@
 import { createApp } from 'vue';
 import App from './App.vue';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { faSquarePlus, faSquareMinus } from '@fortawesome/free-solid-svg-icons';
 
-createApp(App).mount('#app');
+const app = createApp(App);
+
+library.add(faSquarePlus);
+library.add(faSquareMinus);
+
+app.component('font-awesome-icon', FontAwesomeIcon);
+app.mount('#app');

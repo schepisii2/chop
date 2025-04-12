@@ -239,31 +239,6 @@ describe('Training Mode Card', () => {
 
 		expect(w.find('[data-test-id="training-mode-card"]').exists()).toBeTruthy();
 	});
-	it('closes training mode card', async () => {
-		const w = shallowMount(MainView);
-		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
-			'get-started',
-		);
-
-		await (
-			w.getComponent('[data-test-id="training-day-selector"') as any
-		).vm.$emit('start', {
-			month: 'Month 6',
-			day: 1,
-			type: ExerciseType.Cardio,
-			mode: TrainingMode.Four,
-			timers: [
-				{ duration: 10, zone: TrainingZone.WarmUp },
-				{ duration: 45, zone: TrainingZone.BP },
-				{ duration: 10, zone: TrainingZone.CoolDown },
-			],
-		});
-		await (w.getComponent('[data-test-id="training-mode-card') as any).vm.$emit(
-			'close',
-		);
-
-		expect(w.find('[data-test-id="training-mode-card"]').exists()).toBeFalsy();
-	});
 });
 
 describe('Timers', () => {

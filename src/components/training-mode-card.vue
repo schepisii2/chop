@@ -1,6 +1,9 @@
 <script setup>
-import { defineProps, computed } from 'vue';
+import { defineProps, computed, ref } from 'vue';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 const props = defineProps(['mode']);
+
+const expanded = ref(true);
 
 const title = computed(() => {
 	if (props.mode.id === 1) {
@@ -23,16 +26,23 @@ const title = computed(() => {
 				<h5 class="card-title" data-test-id="training-mode-title">
 					{{ title }}
 				</h5>
-				<button
-					type="button"
-					class="btn-close"
-					aria-label="Close"
-					data-test-id="close-button"
-					@click="$emit('close')"
-				></button>
+				<font-awesome-icon
+					v-if="expanded"
+					icon="square-minus"
+					size="2x"
+					data-test-id="collapse-button"
+					@click="expanded = false"
+				/>
+				<font-awesome-icon
+					v-else
+					icon="square-plus"
+					size="2x"
+					data-test-id="expand-button"
+					@click="expanded = true"
+				/>
 			</div>
 		</div>
-		<div class="card-body">
+		<div class="card-body" v-if="expanded">
 			<h6 data-test-id="training-mode-description">{{ mode.description }}</h6>
 			<ul v-if="mode.examples" data-test-id="training-mode-examples">
 				<li v-for="example in mode.examples" v-bind:key="example">

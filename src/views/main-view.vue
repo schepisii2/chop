@@ -10,7 +10,6 @@ import { ExerciseType } from '../models/training-days';
 const showTitle = ref(true);
 const showDisclaimer = ref(false);
 const showTrainingDaySelector = ref(true);
-const showTrainingModeCard = ref(true);
 
 const trainingDay = ref({});
 function start(day) {
@@ -103,10 +102,8 @@ const upcomingTimer = computed(() => {
 		<h3 data-test-id="training-day-type">{{ typeText }}</h3>
 		<div v-if="currentTimer">
 			<training-mode-card
-				v-if="showTrainingModeCard"
 				data-test-id="training-mode-card"
 				:mode="trainingDay.mode"
-				@close="showTrainingModeCard = false"
 			/>
 			<timer-card
 				v-show="timer === currentTimer"
