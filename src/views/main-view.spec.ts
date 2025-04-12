@@ -3,6 +3,27 @@ import { flushPromises, shallowMount } from '@vue/test-utils';
 import { describe, it, expect } from 'vitest';
 import DisclaimerInformation from '../components/disclaimer-information.vue';
 
+describe('Title Page', () => {
+	it('shows title page on page load', () => {
+		const w = shallowMount(MainView);
+		expect(w.find('[data-test-id="title-page"]').exists()).toBeTruthy();
+	});
+	it('does not show the title page when "get-started" is emitted', async () => {
+		const w = shallowMount(MainView);
+		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
+			'get-started',
+		);
+		expect(w.find('[data-test-id="title-page"]').exists()).toBeFalsy();
+	});
+	it('does not show the title page when "show-disclaimer" is emitted', async () => {
+		const w = shallowMount(MainView);
+		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
+			'show-disclaimer',
+		);
+		expect(w.find('[data-test-id="title-page"]').exists()).toBeFalsy();
+	});
+});
+
 describe('Disclaimer', () => {
 	it('does not show disclaimer on page load', () => {
 		const w = shallowMount(MainView);
@@ -10,13 +31,13 @@ describe('Disclaimer', () => {
 			w.find('[data-test-id="disclaimer-information"]').exists(),
 		).toBeFalsy();
 	});
-	it('shows disclaimer button', () => {
+	it('shows disclaimer when "show-disclaimer" is emitted', async () => {
 		const w = shallowMount(MainView);
-		expect(w.find('[data-test-id="disclaimer-button"]').exists()).toBeTruthy();
-	});
-	it('shows disclaimer on button click', async () => {
-		const w = shallowMount(MainView);
-		await w.find('[data-test-id="disclaimer-button"]').trigger('click');
+
+		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
+			'show-disclaimer',
+		);
+
 		expect(
 			w.find('[data-test-id="disclaimer-information"]').exists(),
 		).toBeTruthy();
@@ -24,7 +45,9 @@ describe('Disclaimer', () => {
 	it('closes disclaimer when close emitted', async () => {
 		const w = shallowMount(MainView);
 
-		await w.find('[data-test-id="disclaimer-button"]').trigger('click');
+		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
+			'show-disclaimer',
+		);
 		w.getComponent(DisclaimerInformation).vm.$emit('close');
 		await flushPromises();
 
@@ -35,8 +58,12 @@ describe('Disclaimer', () => {
 });
 
 describe('Dropdowns', () => {
-	it('renders month dropdown', () => {
+	it('renders month dropdown', async () => {
 		const w = shallowMount(MainView);
+		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
+			'get-started',
+		);
+
 		const expectedMonths = [
 			'Month 1',
 			'Month 2',
@@ -56,15 +83,26 @@ describe('Dropdowns', () => {
 	});
 	it('sets selected month on click', async () => {
 		const w = shallowMount(MainView);
+		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
+			'get-started',
+		);
+
 		await w.find('[data-test-id="Month 4-dropdown-option"]').trigger('click');
 		expect((w.vm as any).selectedMonth).toBe('Month 4');
 	});
-	it('renders day dropdown', () => {
+	it('renders day dropdown', async () => {
 		const w = shallowMount(MainView);
+		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
+			'get-started',
+		);
+
 		expect(w.find('[data-test-id="day-dropdown"]').exists()).toBeTruthy();
 	});
 	it('renders the correct amount of days for a month', async () => {
 		const w = shallowMount(MainView);
+		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
+			'get-started',
+		);
 
 		// Month 4 has 28 days
 		await w.find('[data-test-id="Month 4-dropdown-option"]').trigger('click');
@@ -86,6 +124,9 @@ describe('Dropdowns', () => {
 
 it('renders training day type', async () => {
 	const w = shallowMount(MainView);
+	await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
+		'get-started',
+	);
 
 	// Month 1 - Day 1 is a rest day
 	expect(w.find('[data-test-id="training-day-type"]').text()).toBe('Rest Day');
@@ -106,6 +147,9 @@ it('renders training day type', async () => {
 describe('Timers', () => {
 	it('renders timers cardio days', async () => {
 		const w = shallowMount(MainView);
+		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
+			'get-started',
+		);
 
 		// Month 1 - Day 1 is a rest day, should not render any timers
 		expect(w.findAllComponents('timer-card-stub')).toHaveLength(0);
@@ -116,13 +160,21 @@ describe('Timers', () => {
 	});
 	it('renders upcoming timer', async () => {
 		const w = shallowMount(MainView);
+		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
+			'get-started',
+		);
+
 		await w.find('[data-test-id="2-dropdown-option"]').trigger('click');
+
 		expect(w.find('[data-test-id="upcoming-timer"').text()).toBe(
 			'Upcoming: 3 Minute Timer - Base Pace',
 		);
 	});
 	it('only shows current timer', async () => {
 		const w = shallowMount(MainView);
+		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
+			'get-started',
+		);
 
 		await w.find('[data-test-id="2-dropdown-option"]').trigger('click');
 
@@ -134,6 +186,9 @@ describe('Timers', () => {
 	});
 	it('updates current timer when close is emitted by timer', async () => {
 		const w = shallowMount(MainView);
+		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
+			'get-started',
+		);
 
 		await w.find('[data-test-id="2-dropdown-option"]').trigger('click');
 		await (w.getComponent('timer-card-stub') as any).vm.$emit('close');

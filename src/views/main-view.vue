@@ -1,9 +1,11 @@
 <script setup>
 import { ref, computed } from 'vue';
 import DisclaimerInformation from '../components/disclaimer-information.vue';
-import timerCard from '../components/timer-card.vue';
+import TitlePage from '../components/title-page.vue';
+import TimerCard from '../components/timer-card.vue';
 import { TRAINING_CALENDAR, ExerciseType } from '../models/training-days';
 
+const showTitle = ref(true);
 const showDisclaimer = ref(false);
 
 const selectedMonth = ref('Month 1');
@@ -63,19 +65,13 @@ const upcomingTimer = computed(() => {
 		data-test-id="disclaimer-information"
 		@close="showDisclaimer = false"
 	/>
+	<title-page
+		v-else-if="showTitle"
+		data-test-id="title-page"
+		@get-started="showTitle = false"
+		@show-disclaimer="showDisclaimer = true"
+	/>
 	<div v-else class="m-3">
-		<div data-test-id="main-header" class="d-flex justify-content-between">
-			<h2>POTS Exercise Program Timer</h2>
-			<button
-				type="button"
-				class="btn btn-secondary"
-				data-test-id="disclaimer-button"
-				@click="showDisclaimer = true"
-			>
-				See Disclaimer
-			</button>
-		</div>
-
 		<div data-test-id="dropdowns" class="d-flex flex-row my-2">
 			<div class="dropdown me-2" data-test-id="month-dropdown">
 				<button
