@@ -3,12 +3,14 @@ import { ref, computed } from 'vue';
 import DisclaimerInformation from '../components/disclaimer-information.vue';
 import TitlePage from '../components/title-page.vue';
 import TrainingDaySelector from '../components/training-day-selector.vue';
+import TrainingModeCard from '../components/training-mode-card.vue';
 import TimerCard from '../components/timer-card.vue';
 import { ExerciseType } from '../models/training-days';
 
 const showTitle = ref(true);
 const showDisclaimer = ref(false);
 const showTrainingDaySelector = ref(true);
+const showTrainingModeCard = ref(true);
 
 const trainingDay = ref({});
 function start(day) {
@@ -100,6 +102,12 @@ const upcomingTimer = computed(() => {
 	<div v-else class="m-3">
 		<h3 data-test-id="training-day-type">{{ typeText }}</h3>
 		<div v-if="currentTimer">
+			<training-mode-card
+				v-if="showTrainingModeCard"
+				data-test-id="training-mode-card"
+				:mode="trainingDay.mode"
+				@close="showTrainingModeCard = false"
+			/>
 			<timer-card
 				v-show="timer === currentTimer"
 				v-for="timer in trainingDay.timers"

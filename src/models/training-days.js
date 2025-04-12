@@ -75,6 +75,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 1',
 		day: 2,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 3, zone: TrainingZone.BP },
@@ -92,6 +93,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 1',
 		day: 4,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 3, zone: TrainingZone.BP },
@@ -109,6 +111,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 1',
 		day: 6,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 3, zone: TrainingZone.BP },
@@ -131,6 +134,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 1',
 		day: 9,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 4, zone: TrainingZone.BP },
@@ -148,6 +152,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 1',
 		day: 11,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 4, zone: TrainingZone.BP },
@@ -165,6 +170,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 1',
 		day: 13,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 4, zone: TrainingZone.BP },
@@ -187,6 +193,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 1',
 		day: 16,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 5, zone: TrainingZone.BP },
@@ -204,6 +211,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 1',
 		day: 18,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 5, zone: TrainingZone.BP },
@@ -221,6 +229,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 1',
 		day: 20,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 5, zone: TrainingZone.BP },
@@ -243,6 +252,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 1',
 		day: 23,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 6, zone: TrainingZone.BP },
@@ -260,6 +270,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 1',
 		day: 25,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 7, zone: TrainingZone.BP },
@@ -277,6 +288,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 1',
 		day: 27,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 7, zone: TrainingZone.BP },
@@ -299,6 +311,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 2',
 		day: 2,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 6, zone: TrainingZone.BP },
@@ -318,6 +331,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 2',
 		day: 4,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 7, zone: TrainingZone.BP },
@@ -337,6 +351,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 2',
 		day: 6,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 8, zone: TrainingZone.BP },
@@ -361,6 +376,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 2',
 		day: 9,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 6, zone: TrainingZone.BP },
@@ -380,6 +396,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 2',
 		day: 11,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 5, zone: TrainingZone.BP },
@@ -399,6 +416,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 2',
 		day: 13,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 5, zone: TrainingZone.BP },
@@ -423,6 +441,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 2',
 		day: 16,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 10, zone: TrainingZone.BP },
@@ -440,6 +459,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 2',
 		day: 18,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 11, zone: TrainingZone.BP },
@@ -457,6 +477,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 2',
 		day: 20,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 12, zone: TrainingZone.BP },
@@ -479,6 +500,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 2',
 		day: 23,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 13, zone: TrainingZone.BP },
@@ -496,6 +518,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 2',
 		day: 25,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 14, zone: TrainingZone.BP },
@@ -513,6 +536,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 2',
 		day: 27,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 15, zone: TrainingZone.BP },
@@ -535,6 +559,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 2',
 		day: 30,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 20, zone: TrainingZone.BP },
@@ -550,6 +575,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 2',
 		day: 32,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 24, zone: TrainingZone.BP },
@@ -565,6 +591,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 2',
 		day: 34,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 28, zone: TrainingZone.BP },
@@ -585,6 +612,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 3',
 		day: 2,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 30, zone: TrainingZone.BP },
@@ -600,6 +628,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 3',
 		day: 4,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 30, zone: TrainingZone.BP },
@@ -615,6 +644,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 3',
 		day: 6,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 30, zone: TrainingZone.BP },
@@ -635,6 +665,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 3',
 		day: 9,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 30, zone: TrainingZone.BP },
@@ -650,6 +681,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 3',
 		day: 11,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 30, zone: TrainingZone.BP },
@@ -665,6 +697,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 3',
 		day: 13,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 20, zone: TrainingZone.MSS },
@@ -675,6 +708,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 3',
 		day: 14,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [{ duration: 40, zone: TrainingZone.Recovery }],
 	},
 	{
@@ -686,6 +720,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 3',
 		day: 16,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 30, zone: TrainingZone.BP },
@@ -701,6 +736,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 3',
 		day: 18,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 30, zone: TrainingZone.BP },
@@ -716,6 +752,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 3',
 		day: 20,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 30, zone: TrainingZone.BP },
@@ -736,6 +773,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 3',
 		day: 23,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 30, zone: TrainingZone.BP },
@@ -751,6 +789,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 3',
 		day: 25,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 25, zone: TrainingZone.MSS },
@@ -761,6 +800,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 3',
 		day: 26,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [{ duration: 40, zone: TrainingZone.Recovery }],
 	},
 	{
@@ -772,6 +812,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 3',
 		day: 28,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 30, zone: TrainingZone.BP },
@@ -787,6 +828,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 4',
 		day: 2,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duation: 30, zone: TrainingZone.BP },
@@ -802,6 +844,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 4',
 		day: 4,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duation: 30, zone: TrainingZone.BP },
@@ -817,6 +860,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 4',
 		day: 6,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duation: 20, zone: TrainingZone.BP },
@@ -832,6 +876,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 4',
 		day: 8,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duation: 30, zone: TrainingZone.BP },
@@ -847,6 +892,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 4',
 		day: 10,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duation: 30, zone: TrainingZone.BP },
@@ -862,6 +908,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 4',
 		day: 12,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duation: 25, zone: TrainingZone.MSS },
@@ -872,6 +919,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 4',
 		day: 13,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [{ duration: 40, zone: TrainingZone.Recovery }],
 	},
 	{
@@ -883,6 +931,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 4',
 		day: 15,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duation: 40, zone: TrainingZone.BP },
@@ -903,6 +952,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 4',
 		day: 18,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duation: 30, zone: TrainingZone.MSS },
@@ -913,6 +963,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 4',
 		day: 19,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [{ duration: 40, zone: TrainingZone.Recovery }],
 	},
 	{
@@ -924,6 +975,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 4',
 		day: 21,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duation: 35, zone: TrainingZone.BP },
@@ -944,6 +996,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 4',
 		day: 24,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duation: 35, zone: TrainingZone.MSS },
@@ -954,12 +1007,14 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 4',
 		day: 25,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.One,
 		timers: [{ duration: 40, zone: TrainingZone.Recovery }],
 	},
 	{
 		month: 'Month 4',
 		day: 26,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Three,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duation: 30, zone: TrainingZone.BP },
@@ -975,6 +1030,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 4',
 		day: 28,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duation: 40, zone: TrainingZone.BP },
@@ -990,6 +1046,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 5',
 		day: 2,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Three,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 35, zone: TrainingZone.BP },
@@ -1005,6 +1062,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 5',
 		day: 4,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Three,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 35, zone: TrainingZone.BP },
@@ -1020,6 +1078,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 5',
 		day: 6,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Three,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 35, zone: TrainingZone.BP },
@@ -1040,6 +1099,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 5',
 		day: 9,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Three,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 40, zone: TrainingZone.BP },
@@ -1055,6 +1115,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 5',
 		day: 11,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Three,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 3, zone: TrainingZone.MSS },
@@ -1065,12 +1126,14 @@ export const TRAINING_CALENDAR = [
 		/* TO-DO: Add Strength Training */ month: 'Month 5',
 		day: 12,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Three,
 		timers: [{ duration: 40, zone: TrainingZone.Recovery }],
 	},
 	{
 		month: 'Month 5',
 		day: 13,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Three,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 35, zone: TrainingZone.BP },
@@ -1091,6 +1154,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 5',
 		day: 16,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Three,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 60, zone: TrainingZone.BP },
@@ -1106,6 +1170,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 5',
 		day: 18,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Three,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 3, zone: TrainingZone.BP },
@@ -1116,6 +1181,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 5',
 		day: 19,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Three,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 35, zone: TrainingZone.MSS },
@@ -1126,12 +1192,14 @@ export const TRAINING_CALENDAR = [
 		/* TO-DO: Add Strength Training */ month: 'Month 5',
 		day: 20,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Three,
 		timers: [{ duration: 25, zone: TrainingZone.Recovery }],
 	},
 	{
 		month: 'Month 5',
 		day: 21,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Three,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 50, zone: TrainingZone.BP },
@@ -1147,6 +1215,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 5',
 		day: 23,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Three,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 35, zone: TrainingZone.BP },
@@ -1162,6 +1231,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 5',
 		day: 25,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Three,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -1172,6 +1242,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 5',
 		day: 26,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Three,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 40, zone: TrainingZone.MSS },
@@ -1182,6 +1253,7 @@ export const TRAINING_CALENDAR = [
 		/* TO-DO: Add Strength Training */ month: 'Month 5',
 		day: 27,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Three,
 		timers: [{ duration: 25, zone: TrainingZone.Recovery }],
 	},
 	{
@@ -1193,6 +1265,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 6',
 		day: 1,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -1208,6 +1281,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 6',
 		day: 3,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 40, zone: TrainingZone.BP },
@@ -1218,6 +1292,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 6',
 		day: 4,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 60, zone: TrainingZone.BP },
@@ -1233,6 +1308,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 6',
 		day: 6,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -1253,6 +1329,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 6',
 		day: 9,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 30, zone: TrainingZone.BP },
@@ -1263,6 +1340,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 6',
 		day: 10,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 1, zone: TrainingZone.RP },
@@ -1279,6 +1357,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 6',
 		day: 11,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -1294,6 +1373,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 6',
 		day: 13,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 30, zone: TrainingZone.MSS },
@@ -1314,6 +1394,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 6',
 		day: 16,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 35, zone: TrainingZone.BP },
@@ -1324,6 +1405,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 6',
 		day: 17,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 35, zone: TrainingZone.MSS },
@@ -1339,6 +1421,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 6',
 		day: 19,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 1, zone: TrainingZone.RP },
@@ -1357,6 +1440,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 6',
 		day: 20,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 40, zone: TrainingZone.BP },
@@ -1367,12 +1451,14 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 6',
 		day: 21,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [{ duration: 25, zone: TrainingZone.Recovery }],
 	},
 	{
 		month: 'Month 6',
 		day: 22,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 60, zone: TrainingZone.BP },
@@ -1388,6 +1474,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 6',
 		day: 24,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 1, zone: TrainingZone.RP },
@@ -1408,6 +1495,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 6',
 		day: 25,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -1423,6 +1511,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 6',
 		day: 27,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 30, zone: TrainingZone.BP },
@@ -1433,6 +1522,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 6',
 		day: 28,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 30, zone: TrainingZone.MSS },
@@ -1448,6 +1538,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 7',
 		day: 2,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 60, zone: TrainingZone.BP },
@@ -1463,6 +1554,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 7',
 		day: 4,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -1473,6 +1565,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 7',
 		day: 5,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -1488,6 +1581,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 7',
 		day: 7,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 60, zone: TrainingZone.BP },
@@ -1503,6 +1597,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 7',
 		day: 9,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 2, zone: TrainingZone.RP },
@@ -1523,6 +1618,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 7',
 		day: 10,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -1533,6 +1629,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 7',
 		day: 11,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 40, zone: TrainingZone.BP },
@@ -1548,6 +1645,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 7',
 		day: 13,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 40, zone: TrainingZone.MSS },
@@ -1563,6 +1661,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 7',
 		day: 15,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 60, zone: TrainingZone.BP },
@@ -1578,6 +1677,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 7',
 		day: 17,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 2, zone: TrainingZone.RP },
@@ -1598,6 +1698,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 7',
 		day: 18,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -1608,6 +1709,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 7',
 		day: 19,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 2, zone: TrainingZone.RP },
@@ -1633,6 +1735,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 7',
 		day: 21,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 40, zone: TrainingZone.MSS },
@@ -1643,6 +1746,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 7',
 		day: 22,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 60, zone: TrainingZone.BP },
@@ -1658,6 +1762,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 7',
 		day: 24,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.MSS },
@@ -1668,6 +1773,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 7',
 		day: 25,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -1678,6 +1784,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 7',
 		day: 26,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 2, zone: TrainingZone.RP },
@@ -1703,6 +1810,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 7',
 		day: 28,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 60, zone: TrainingZone.BP },
@@ -1718,6 +1826,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 2,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -1728,6 +1837,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 3,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -1738,6 +1848,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 4,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -1753,6 +1864,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 6,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 40, zone: TrainingZone.MSS },
@@ -1768,6 +1880,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 8,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 60, zone: TrainingZone.BP },
@@ -1783,6 +1896,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 10,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -1793,6 +1907,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 11,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.MSS },
@@ -1803,6 +1918,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 12,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -1818,6 +1934,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 14,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 2, zone: TrainingZone.RP },
@@ -1847,6 +1964,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 16,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 3, zone: TrainingZone.RP },
@@ -1867,6 +1985,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 17,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -1877,6 +1996,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 18,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.MSS },
@@ -1887,6 +2007,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 19,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -1897,6 +2018,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 20,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 3, zone: TrainingZone.RP },
@@ -1922,6 +2044,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 22,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 60, zone: TrainingZone.BP },
@@ -1937,6 +2060,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 24,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 2, zone: TrainingZone.RP },
@@ -1967,6 +2091,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 25,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -1977,6 +2102,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 26,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.MSS },
@@ -1992,6 +2118,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 28,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 60, zone: TrainingZone.BP },
@@ -2007,6 +2134,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 30,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.MSS },
@@ -2017,6 +2145,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 31,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -2032,6 +2161,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 33,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
@@ -2042,6 +2172,7 @@ export const TRAINING_CALENDAR = [
 		month: 'Month 8',
 		day: 34,
 		type: ExerciseType.Cardio,
+		mode: TrainingMode.Four,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
 			{ duration: 45, zone: TrainingZone.BP },
