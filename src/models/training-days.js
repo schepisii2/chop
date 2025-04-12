@@ -33,6 +33,38 @@ export const TrainingZone = {
 	},
 };
 
+export const TrainingMode = {
+	One: {
+		id: 1,
+		description: 'Horizontal or Seated training',
+		examples: [
+			'Recumbent bike',
+			'Rowing ergometer',
+			'Swimming (kicking with a kickboard)',
+		],
+	},
+	Two: {
+		id: 2,
+		description: 'Upright bike',
+	},
+	Three: {
+		id: 3,
+		description: 'Upright exercise',
+		examples: [
+			'Elliptical (begin without arm motion)',
+			'Treadmill (no incline)',
+		],
+	},
+	Four: {
+		id: 4,
+		description: 'Upright training',
+		examples: [
+			'Add in use of arm motion on the elliptical and incline on the treadmill',
+			'Jogging and stair stepping can be tried only after you have performed either elliptical with use of arms or treadmill walking on an incline and did not have an increase in symptoms. You do not ever have to jog if you do not want to.',
+		],
+	},
+};
+
 export const TRAINING_CALENDAR = [
 	{
 		month: 'Month 1',
