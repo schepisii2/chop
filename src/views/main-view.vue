@@ -5,6 +5,7 @@ import TitlePage from '../components/title-page.vue';
 import TrainingDaySelector from '../components/training-day-selector.vue';
 import TrainingModeCard from '../components/training-mode-card.vue';
 import TimerCard from '../components/timer-card.vue';
+import rpeChart from '../components/rpe-chart.vue';
 import { ExerciseType } from '../models/training-days';
 
 const showTitle = ref(true);
@@ -122,6 +123,7 @@ const upcomingTimer = computed(() => {
 				Upcoming: {{ upcomingTimer.duration }} Minute Timer -
 				{{ upcomingTimer.zone.label }}
 			</p>
+			<rpe-chart />
 		</div>
 	</div>
 </template>
