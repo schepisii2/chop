@@ -2,27 +2,20 @@
 import { ref, computed } from 'vue';
 import DisclaimerInformation from '../components/disclaimer-information.vue';
 import TitlePage from '../components/title-page.vue';
+import TrainingDaySelector from '../components/training-day-selector.vue';
 import TimerCard from '../components/timer-card.vue';
-import { TRAINING_CALENDAR, ExerciseType } from '../models/training-days';
+import { ExerciseType } from '../models/training-days';
 
 const showTitle = ref(true);
 const showDisclaimer = ref(false);
+const showTrainingDaySelector = ref(true);
 
-const selectedMonth = ref('Month 1');
-const months = [...new Set(TRAINING_CALENDAR.map((d) => d.month))];
+const trainingDay = ref({});
+function start(day) {
+	trainingDay.value = day;
+	showTrainingDaySelector.value = false;
+}
 
-const selectedDay = ref(1);
-const days = computed(() => {
-	return TRAINING_CALENDAR.filter((d) => d.month === selectedMonth.value).map(
-		(d) => d.day,
-	);
-});
-
-const trainingDay = computed(() => {
-	return TRAINING_CALENDAR.find(
-		(d) => d.month === selectedMonth.value && d.day === selectedDay.value,
-	);
-});
 const typeText = computed(() => {
 	let text = '';
 	const type = trainingDay.value.type;
@@ -71,52 +64,12 @@ const upcomingTimer = computed(() => {
 		@get-started="showTitle = false"
 		@show-disclaimer="showDisclaimer = true"
 	/>
+	<training-day-selector
+		v-else-if="showTrainingDaySelector"
+		data-test-id="training-day-selector"
+		@start="start"
+	/>
 	<div v-else class="m-3">
-		<div data-test-id="dropdowns" class="d-flex flex-row my-2">
-			<div class="dropdown me-2" data-test-id="month-dropdown">
-				<button
-					class="btn btn-outline-dark dropdown-toggle"
-					type="button"
-					data-bs-toggle="dropdown"
-					aria-expanded="false"
-				>
-					{{ selectedMonth }}
-				</button>
-				<ul class="dropdown-menu">
-					<li
-						v-for="month in months"
-						v-bind:key="month"
-						:data-test-id="month + '-dropdown-option'"
-						@click="selectedMonth = month"
-					>
-						<a class="dropdown-item">{{ month }}</a>
-					</li>
-				</ul>
-			</div>
-
-			<div class="dropdown" data-test-id="day-dropdown">
-				<button
-					class="btn btn-outline-dark dropdown-toggle"
-					type="button"
-					id="dropdownMenuButton1"
-					data-bs-toggle="dropdown"
-					aria-expanded="false"
-				>
-					Day {{ selectedDay }}
-				</button>
-				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-					<li
-						v-for="day in days"
-						v-bind:key="day"
-						:data-test-id="day + '-dropdown-option'"
-						@click="selectedDay = day"
-					>
-						<a class="dropdown-item">Day {{ day }}</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-
 		<h3 data-test-id="training-day-type">{{ typeText }}</h3>
 		<div v-if="currentTimer">
 			<timer-card
