@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps, defineEmits, ref } from 'vue';
+import NotificationSound from '../audio/notification.mp3';
 
 const props = defineProps(['duration', 'zone']);
 const emits = defineEmits(['close']);
@@ -28,7 +29,7 @@ function pauseTimer() {
 }
 function endTimer() {
 	try {
-		var audio = new Audio(require('../audio/notification.mp3'));
+		var audio = new Audio(NotificationSound);
 		audio.play();
 	} catch {
 		alert('Timer finished!');
