@@ -35,10 +35,10 @@ describe('Timer Card', () => {
 		expect(w.find('[data-test-id="start-button"]').exists()).toBeFalsy();
 		expect(w.find('[data-test-id="stop-button"]').text()).toBe('Stop');
 	});
-	it('Emits close and shows alert when timer is up', async () => {
+	it('Emits close and makes notification sound when timer is up', async () => {
 		vi.useFakeTimers();
-		const mockAlert = vi.fn();
-		window.alert = mockAlert;
+		const mockNotification = vi.fn();
+		HTMLMediaElement.prototype.play = mockNotification;
 		const w = shallowMount(TimerCard, {
 			props: { duration: 10, zone: TrainingZone.WarmUp },
 		});
@@ -47,7 +47,7 @@ describe('Timer Card', () => {
 		vi.advanceTimersByTime(6000000);
 
 		expect(w.emitted('close')).toBeDefined();
-		expect(mockAlert).toHaveBeenCalled();
+		expect(mockNotification).toHaveBeenCalled();
 	});
 	it('Shows zone information', () => {
 		const w = shallowMount(TimerCard, {

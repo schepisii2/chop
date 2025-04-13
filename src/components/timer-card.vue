@@ -18,15 +18,19 @@ function startTimer() {
 			minutesLeft.value = minutesLeft.value - 1;
 			secondsLeft.value = 59;
 		} else {
-			alert(`${props.duration} minute timer complete!`);
-			clearInterval(timer);
-			emits('close');
+			endTimer();
 		}
 	}, 1000);
 }
 function pauseTimer() {
 	clearInterval(timer);
 	showStartButton.value = true;
+}
+function endTimer() {
+	var audio = new Audio(require('../audio/notification.mp3'));
+	audio.play();
+	clearInterval(timer);
+	emits('close');
 }
 </script>
 
