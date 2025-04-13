@@ -27,8 +27,12 @@ function pauseTimer() {
 	showStartButton.value = true;
 }
 function endTimer() {
-	var audio = new Audio(require('../audio/notification.mp3'));
-	audio.play();
+	try {
+		var audio = new Audio(require('../audio/notification.mp3'));
+		audio.play();
+	} catch {
+		alert('Timer finished!');
+	}
 	clearInterval(timer);
 	emits('close');
 }
