@@ -9,7 +9,7 @@ describe('Timer Card', () => {
 			props: { duration: 10, zone: TrainingZone.WarmUp },
 		});
 		expect(w.find('[data-test-id="timer-title"]').text()).toBe(
-			'10 Minute Timer - Warm Up',
+			'10 Minutes - Warm Up',
 		);
 	});
 	it('Shows time remaining', () => {
@@ -54,13 +54,9 @@ describe('Timer Card', () => {
 			props: { duration: 3, zone: TrainingZone.MSS },
 		});
 		expect(w.find('[data-test-id="timer-title"]').text()).toBe(
-			'3 Minute Timer - Maximal Steady State (MSS)',
+			'3 Minutes - Maximal Steady State (MSS)',
 		);
-		expect(w.find('[data-test-id="heart-rate"]').text()).toBe(
-			'Heart Rate: 165-175 BPM',
-		);
-		expect(w.find('[data-test-id="perceived-exertion"]').text()).toBe(
-			'Perceived Exertion: 5-8',
-		);
+		expect(w.find('[data-test-id="heart-rate"]').text()).toBe('165-175 BPM');
+		expect(w.find('[data-test-id="perceived-exertion"]').text()).toBe('5-8');
 	});
 });

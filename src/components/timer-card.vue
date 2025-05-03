@@ -46,7 +46,7 @@ function endTimer() {
 		<div class="card-header">
 			<div class="d-flex justify-content-between">
 				<h5 class="card-title" data-test-id="timer-title">
-					{{ props.duration }} Minute Timer - {{ props.zone.label }}
+					{{ props.duration }} Minutes - {{ props.zone.label }}
 				</h5>
 				<h5 class="card-title" data-test-id="total-time-remaining">
 					<font-awesome-icon icon="hourglass-half" />
@@ -89,13 +89,15 @@ function endTimer() {
 			<hr v-if="props.zone.heartRate || props.zone.perceivedExertion" />
 			<div class="d-flex justify-content-around">
 				<p v-if="props.zone.heartRate" data-test-id="heart-rate">
-					Heart Rate: {{ props.zone.heartRate }} BPM
+					<font-awesome-icon icon="heart-pulse" />
+					{{ props.zone.heartRate }} BPM
 				</p>
 				<p
 					v-if="props.zone.perceivedExertion"
 					data-test-id="perceived-exertion"
 				>
-					Perceived Exertion: {{ props.zone.perceivedExertion }}
+					<font-awesome-icon icon="dumbbell" />
+					{{ props.zone.perceivedExertion }}
 				</p>
 			</div>
 		</div>

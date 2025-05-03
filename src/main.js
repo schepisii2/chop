@@ -4,7 +4,9 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
 	faBackwardStep,
+	faDumbbell,
 	faForwardStep,
+	faHeartPulse,
 	faHourglassHalf,
 	faSquarePlus,
 	faSquareMinus,
@@ -13,7 +15,9 @@ import {
 const app = createApp(App);
 
 library.add(faBackwardStep);
+library.add(faDumbbell);
 library.add(faForwardStep);
+library.add(faHeartPulse);
 library.add(faHourglassHalf);
 library.add(faSquarePlus);
 library.add(faSquareMinus);
