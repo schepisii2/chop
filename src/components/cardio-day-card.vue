@@ -39,6 +39,10 @@ const upcomingTimer = computed(() => {
 </script>
 <template>
 	<div v-if="props.trainingDay.timers.length > timerIndex">
+		<training-mode-card
+			data-test-id="training-mode-card"
+			:mode="props.trainingDay.mode"
+		/>
 		<timer-card
 			v-show="timer === currentTimer"
 			v-for="timer in props.trainingDay.timers"
@@ -70,10 +74,6 @@ const upcomingTimer = computed(() => {
 				/></a>
 			</p>
 		</div>
-		<training-mode-card
-			data-test-id="training-mode-card"
-			:mode="props.trainingDay.mode"
-		/>
 		<zone-chart />
 		<rpe-chart />
 	</div>
