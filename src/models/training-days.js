@@ -831,7 +831,7 @@ export const TRAINING_CALENDAR = [
 		mode: TrainingMode.One,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
-			{ duation: 30, zone: TrainingZone.BP },
+			{ duration: 30, zone: TrainingZone.BP },
 			{ duration: 10, zone: TrainingZone.CoolDown },
 		],
 	},
