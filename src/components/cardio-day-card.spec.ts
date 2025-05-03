@@ -34,7 +34,7 @@ describe('Cardio Day Card', () => {
 	it('renders upcoming timer', async () => {
 		const w = mountCardioDayCard();
 		expect(w.find('[data-test-id="upcoming-timer"]').text()).toBe(
-			'Upcoming: 45 Minute Timer - Base Pace',
+			'45 Minutes - Base Pace',
 		);
 	});
 	it('does not render back button when first timer is shown', async () => {
@@ -52,7 +52,7 @@ describe('Cardio Day Card', () => {
 
 		// check upcoming timer updates
 		expect(w.find('[data-test-id="upcoming-timer"').text()).toBe(
-			'Upcoming: 10 Minute Timer - Cool Down',
+			'10 Minutes - Cool Down',
 		);
 	});
 	it('does not render upcoming timer when last timer is shown', async () => {
@@ -77,7 +77,7 @@ describe('Cardio Day Card', () => {
 
 		// check upcoming timer updates
 		expect(w.find('[data-test-id="upcoming-timer"').text()).toBe(
-			'Upcoming: 45 Minute Timer - Base Pace',
+			'45 Minutes - Base Pace',
 		);
 	});
 	it('only shows current timer', async () => {
@@ -99,7 +99,7 @@ describe('Cardio Day Card', () => {
 
 		// check upcoming timer updates
 		expect(w.find('[data-test-id="upcoming-timer"').text()).toBe(
-			'Upcoming: 10 Minute Timer - Cool Down',
+			'10 Minutes - Cool Down',
 		);
 	});
 });

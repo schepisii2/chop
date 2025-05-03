@@ -63,9 +63,10 @@ const upcomingTimer = computed(() => {
 			@click="timerIndex++"
 		>
 			<a href="#"
-				>Upcoming: {{ upcomingTimer.duration }} Minute Timer -
-				{{ upcomingTimer.zone.label }}</a
-			>
+				>{{ upcomingTimer.duration }} Minutes -
+				{{ upcomingTimer.zone.label }}
+				<font-awesome-icon class="ms-2" icon="forward-step"
+			/></a>
 		</p>
 	</div>
 	<training-mode-card

@@ -4,6 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
 	faBackwardStep,
+	faForwardStep,
 	faSquarePlus,
 	faSquareMinus,
 } from '@fortawesome/free-solid-svg-icons';
@@ -11,6 +12,7 @@ import {
 const app = createApp(App);
 
 library.add(faBackwardStep);
+library.add(faForwardStep);
 library.add(faSquarePlus);
 library.add(faSquareMinus);
 
