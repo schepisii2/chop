@@ -38,12 +38,12 @@ const upcomingTimer = computed(() => {
 });
 </script>
 <template>
-	<h4 data-test-id="total-timer-duration">{{ totalTimerDuration }} minutes</h4>
 	<timer-card
 		v-show="timer === currentTimer"
 		v-for="timer in props.trainingDay.timers"
 		v-bind:key="timer"
 		:duration="timer.duration"
+		:remaining-time="totalTimerDuration"
 		:zone="timer.zone"
 		class="my-2"
 		@close="timerIndex++"

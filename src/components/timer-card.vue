@@ -2,11 +2,12 @@
 import { defineProps, defineEmits, ref } from 'vue';
 import NotificationSound from '../audio/notification.mp3';
 
-const props = defineProps(['duration', 'zone']);
+const props = defineProps(['duration', 'zone', 'remainingTime']);
 const emits = defineEmits(['close']);
 
 const showStartButton = ref(true);
 
+const totalMinutesLeft = ref(props.remainingTime);
 const minutesLeft = ref(props.duration);
 const secondsLeft = ref(0);
 let timer = {};
@@ -18,6 +19,7 @@ function startTimer() {
 		} else if (minutesLeft.value > 0) {
 			minutesLeft.value = minutesLeft.value - 1;
 			secondsLeft.value = 59;
+			totalMinutesLeft.value = totalMinutesLeft.value - 1;
 		} else {
 			endTimer();
 		}
@@ -45,6 +47,15 @@ function endTimer() {
 			<div class="d-flex justify-content-between">
 				<h5 class="card-title" data-test-id="timer-title">
 					{{ props.duration }} Minute Timer - {{ props.zone.label }}
+				</h5>
+				<h5 class="card-title" data-test-id="total-time-remaining">
+					<font-awesome-icon icon="hourglass-half" />
+					{{ totalMinutesLeft }}:{{
+						secondsLeft.toLocaleString('en-US', {
+							minimumIntegerDigits: 2,
+							useGrouping: false,
+						})
+					}}
 				</h5>
 			</div>
 		</div>
