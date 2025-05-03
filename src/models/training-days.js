@@ -847,7 +847,7 @@ export const TRAINING_CALENDAR = [
 		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
-			{ duation: 30, zone: TrainingZone.BP },
+			{ duration: 30, zone: TrainingZone.BP },
 			{ duration: 10, zone: TrainingZone.CoolDown },
 		],
 	},
@@ -863,7 +863,7 @@ export const TRAINING_CALENDAR = [
 		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
-			{ duation: 20, zone: TrainingZone.BP },
+			{ duration: 20, zone: TrainingZone.BP },
 			{ duration: 10, zone: TrainingZone.CoolDown },
 		],
 	},
@@ -879,7 +879,7 @@ export const TRAINING_CALENDAR = [
 		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
-			{ duation: 30, zone: TrainingZone.BP },
+			{ duration: 30, zone: TrainingZone.BP },
 			{ duration: 10, zone: TrainingZone.CoolDown },
 		],
 	},
@@ -895,7 +895,7 @@ export const TRAINING_CALENDAR = [
 		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
-			{ duation: 30, zone: TrainingZone.BP },
+			{ duration: 30, zone: TrainingZone.BP },
 			{ duration: 10, zone: TrainingZone.CoolDown },
 		],
 	},
@@ -911,7 +911,7 @@ export const TRAINING_CALENDAR = [
 		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
-			{ duation: 25, zone: TrainingZone.MSS },
+			{ duration: 25, zone: TrainingZone.MSS },
 			{ duration: 10, zone: TrainingZone.CoolDown },
 		],
 	},
@@ -934,7 +934,7 @@ export const TRAINING_CALENDAR = [
 		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
-			{ duation: 40, zone: TrainingZone.BP },
+			{ duration: 40, zone: TrainingZone.BP },
 			{ duration: 10, zone: TrainingZone.CoolDown },
 		],
 	},
@@ -955,7 +955,7 @@ export const TRAINING_CALENDAR = [
 		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
-			{ duation: 30, zone: TrainingZone.MSS },
+			{ duration: 30, zone: TrainingZone.MSS },
 			{ duration: 10, zone: TrainingZone.CoolDown },
 		],
 	},
@@ -978,7 +978,7 @@ export const TRAINING_CALENDAR = [
 		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
-			{ duation: 35, zone: TrainingZone.BP },
+			{ duration: 35, zone: TrainingZone.BP },
 			{ duration: 10, zone: TrainingZone.CoolDown },
 		],
 	},
@@ -999,7 +999,7 @@ export const TRAINING_CALENDAR = [
 		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
-			{ duation: 35, zone: TrainingZone.MSS },
+			{ duration: 35, zone: TrainingZone.MSS },
 			{ duration: 10, zone: TrainingZone.CoolDown },
 		],
 	},
@@ -1017,7 +1017,7 @@ export const TRAINING_CALENDAR = [
 		mode: TrainingMode.Three,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
-			{ duation: 30, zone: TrainingZone.BP },
+			{ duration: 30, zone: TrainingZone.BP },
 			{ duration: 10, zone: TrainingZone.CoolDown },
 		],
 	},
@@ -1033,7 +1033,7 @@ export const TRAINING_CALENDAR = [
 		mode: TrainingMode.Two,
 		timers: [
 			{ duration: 10, zone: TrainingZone.WarmUp },
-			{ duation: 40, zone: TrainingZone.BP },
+			{ duration: 40, zone: TrainingZone.BP },
 			{ duration: 10, zone: TrainingZone.CoolDown },
 		],
 	},
