@@ -193,7 +193,7 @@ describe('Training Day Selector', () => {
 		});
 
 		expect(w.find('[data-test-id="training-day-type"]').text()).toBe(
-			'Cardio Day',
+			'Cardio Day - 65 minutes',
 		);
 	});
 	it('renders training day type - strength day', async () => {

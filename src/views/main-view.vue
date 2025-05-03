@@ -34,6 +34,16 @@ const typeText = computed(() => {
 	}
 	return text;
 });
+const trainingDayTitle = computed(() => {
+	if (typeText.value === 'Cardio Day') {
+		let timerTotal = 0;
+		trainingDay.value.timers.forEach((timer) => {
+			timerTotal = timerTotal + timer.duration;
+		});
+		return typeText.value + ' - ' + timerTotal + ' minutes';
+	}
+	return typeText.value;
+});
 
 const timerIndex = ref(0);
 const currentTimer = computed(() => {
@@ -102,7 +112,7 @@ const upcomingTimer = computed(() => {
 		@start="start"
 	/>
 	<div v-else class="m-3">
-		<h3 data-test-id="training-day-type">{{ typeText }}</h3>
+		<h3 data-test-id="training-day-type">{{ trainingDayTitle }}</h3>
 		<div v-if="currentTimer">
 			<training-mode-card
 				data-test-id="training-mode-card"
