@@ -38,41 +38,52 @@ const upcomingTimer = computed(() => {
 });
 </script>
 <template>
-	<timer-card
-		v-show="timer === currentTimer"
-		v-for="timer in props.trainingDay.timers"
-		v-bind:key="timer"
-		:duration="timer.duration"
-		:remaining-time="totalTimerDuration"
-		:zone="timer.zone"
-		class="my-2"
-		@close="timerIndex++"
-	></timer-card>
-	<div :class="timerIndex === 0 ? '' : 'd-flex justify-content-around mt-2'">
-		<a href="#">
-			<font-awesome-icon
-				v-if="timerIndex !== 0"
-				icon="backward-step"
-				data-test-id="back-button"
-				@click="timerIndex--"
-		/></a>
-		<p
-			v-if="upcomingTimer"
-			:class="timerIndex === 0 ? 'd-flex justify-content-end' : ''"
-			data-test-id="upcoming-timer"
-			@click="timerIndex++"
-		>
-			<a href="#"
-				>{{ upcomingTimer.duration }} Minutes -
-				{{ upcomingTimer.zone.label }}
-				<font-awesome-icon class="ms-2" icon="forward-step"
+	<div v-if="props.trainingDay.timers.length > timerIndex">
+		<timer-card
+			v-show="timer === currentTimer"
+			v-for="timer in props.trainingDay.timers"
+			v-bind:key="timer"
+			:duration="timer.duration"
+			:remaining-time="totalTimerDuration"
+			:zone="timer.zone"
+			class="my-2"
+			@close="timerIndex++"
+		></timer-card>
+		<div :class="timerIndex === 0 ? '' : 'd-flex justify-content-around mt-2'">
+			<a href="#">
+				<font-awesome-icon
+					v-if="timerIndex !== 0"
+					icon="backward-step"
+					data-test-id="back-button"
+					@click="timerIndex--"
 			/></a>
-		</p>
+			<p
+				v-if="upcomingTimer"
+				:class="timerIndex === 0 ? 'd-flex justify-content-end' : ''"
+				data-test-id="upcoming-timer"
+				@click="timerIndex++"
+			>
+				<a href="#"
+					>{{ upcomingTimer.duration }} Minutes -
+					{{ upcomingTimer.zone.label }}
+					<font-awesome-icon class="ms-2" icon="forward-step"
+				/></a>
+			</p>
+		</div>
+		<training-mode-card
+			data-test-id="training-mode-card"
+			:mode="props.trainingDay.mode"
+		/>
+		<zone-chart />
+		<rpe-chart />
 	</div>
-	<training-mode-card
-		data-test-id="training-mode-card"
-		:mode="props.trainingDay.mode"
-	/>
-	<zone-chart />
-	<rpe-chart />
+	<div v-else>
+		<div
+			data-test-id="success-message"
+			class="alert alert-success"
+			role="alert"
+		>
+			All timers are complete!
+		</div>
+	</div>
 </template>

@@ -102,4 +102,13 @@ describe('Cardio Day Card', () => {
 			'10 Minutes - Cool Down',
 		);
 	});
+	it('shows success message when all timers are complete', async () => {
+		const w = mountCardioDayCard();
+
+		await (w.getComponent('timer-card-stub') as any).vm.$emit('close');
+		await (w.getComponent('timer-card-stub') as any).vm.$emit('close');
+		await (w.getComponent('timer-card-stub') as any).vm.$emit('close');
+
+		expect(w.find('[data-test-id="success-message"]').exists()).toBeTruthy();
+	});
 });
