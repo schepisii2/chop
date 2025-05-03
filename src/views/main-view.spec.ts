@@ -3,6 +3,8 @@ import { flushPromises, shallowMount } from '@vue/test-utils';
 import { describe, it, expect } from 'vitest';
 import DisclaimerInformation from '../components/disclaimer-information.vue';
 import { ExerciseType, TrainingZone } from '../models/training-days';
+import CardioDayCard from '../components/cardio-day-card.vue';
+import GymExercisesCard from '../components/gym-exercises-card.vue';
 
 describe('Title Page', () => {
 	it('shows title page on page load', () => {
@@ -191,6 +193,8 @@ describe('Training Day Selector', () => {
 		expect(w.find('[data-test-id="training-day-type"]').text()).toBe(
 			'Cardio Day',
 		);
+		expect(w.findComponent(CardioDayCard).exists()).toBeTruthy();
+		expect(w.findComponent(GymExercisesCard).exists()).toBeFalsy();
 	});
 	it('renders training day type - strength day', async () => {
 		const w = shallowMount(MainView);
@@ -209,5 +213,7 @@ describe('Training Day Selector', () => {
 		expect(w.find('[data-test-id="training-day-type"]').text()).toBe(
 			'Strength Training',
 		);
+		expect(w.findComponent(CardioDayCard).exists()).toBeFalsy();
+		expect(w.findComponent(GymExercisesCard).exists()).toBeTruthy();
 	});
 });

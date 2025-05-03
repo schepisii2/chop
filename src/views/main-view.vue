@@ -4,6 +4,7 @@ import DisclaimerInformation from '../components/disclaimer-information.vue';
 import TitlePage from '../components/title-page.vue';
 import TrainingDaySelector from '../components/training-day-selector.vue';
 import CardioDayCard from '../components/cardio-day-card.vue';
+import GymExercisesCard from '../components/gym-exercises-card.vue';
 import { ExerciseType } from '../models/training-days';
 
 const showTitle = ref(true);
@@ -83,5 +84,6 @@ const typeText = computed(() => {
 			v-if="typeText === 'Cardio Day'"
 			:training-day="trainingDay"
 		/>
+		<gym-exercises-card v-if="typeText === 'Strength Training'" />
 	</div>
 </template>
