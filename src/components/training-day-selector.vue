@@ -15,10 +15,13 @@ const days = computed(() => {
 });
 
 const trainingDay = computed(() => {
-	return TRAINING_CALENDAR.find(
-		(d) => d.month === selectedMonth.value && d.day === selectedDay.value,
-	);
+	return getTrainingDay(selectedDay.value);
 });
+function getTrainingDay(day) {
+	return TRAINING_CALENDAR.find(
+		(d) => d.month === selectedMonth.value && d.day === day,
+	);
+}
 </script>
 <template>
 	<h2 class="d-flex justify-content-center my-5" data-test-id="title">
@@ -26,7 +29,7 @@ const trainingDay = computed(() => {
 	</h2>
 
 	<div class="d-flex flex-column">
-		<div class="d-flex flex-row justify-content-center mb-5">
+		<div class="d-flex flex-row justify-content-center mb-4">
 			<div class="d-flex dropdown me-3" data-test-id="month-dropdown">
 				<button
 					class="btn btn-outline-dark dropdown-toggle"
@@ -65,7 +68,9 @@ const trainingDay = computed(() => {
 						:data-test-id="day + '-dropdown-option'"
 						@click="selectedDay = day"
 					>
-						<a class="dropdown-item">Day {{ day }}</a>
+						<a class="dropdown-item"
+							>Day {{ day }} - {{ getTrainingDay(day).type }}</a
+						>
 					</li>
 				</ul>
 			</div>
