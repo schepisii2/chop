@@ -12,6 +12,8 @@ https://www.dysautonomiainternational.org/pdf/CHOP_Modified_Dallas_POTS_Exercise
 
 This site is hosted at https://schepisii2.github.io/chop/
 
+Note that this project is in-progress.
+
 ### Selecting Your Training Day
 
 Using the PDF referenced above, locate your desired training day via Month and Day, where Month is the month specified in the calendar and Day starts in the first column of the first row and continues left-right up-down. 
