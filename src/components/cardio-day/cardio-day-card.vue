@@ -9,13 +9,14 @@ import rpeChart from './rpe-chart.vue';
 
 const props = defineProps(['trainingDay']);
 
-const totalTimerDuration = computed(() => {
+function getRemainingTime(timer) {
+	const currentIndex = props.trainingDay.timers.findIndex((t) => t === timer);
 	let timerTotal = 0;
-	props.trainingDay.timers?.forEach((timer) => {
-		timerTotal = timerTotal + timer.duration;
-	});
+	for (let i = currentIndex; i < props.trainingDay.timers?.length; i++) {
+		timerTotal = timerTotal + props.trainingDay.timers[i].duration;
+	}
 	return timerTotal;
-});
+}
 
 const timerIndex = ref(0);
 const currentTimer = computed(() => {
@@ -48,7 +49,7 @@ const upcomingTimer = computed(() => {
 			v-for="timer in props.trainingDay.timers"
 			v-bind:key="timer"
 			:duration="timer.duration"
-			:remaining-time="totalTimerDuration"
+			:remaining-time="getRemainingTime(timer)"
 			:zone="timer.zone"
 			class="my-2"
 			@close="timerIndex++"
