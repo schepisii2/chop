@@ -9,6 +9,10 @@ import rpeChart from './rpe-chart.vue';
 
 const props = defineProps(['trainingDay']);
 
+const showTrainingModeCard = ref(false);
+const showZoneCard = ref(false);
+const showRpeCard = ref(false);
+
 function getRemainingTime(timer) {
 	const currentIndex = props.trainingDay.timers.findIndex((t) => t === timer);
 	let timerTotal = 0;
@@ -40,9 +44,47 @@ const upcomingTimer = computed(() => {
 </script>
 <template>
 	<div v-if="props.trainingDay.timers.length > timerIndex">
+		<div
+			class="d-flex justify-content-end dropdown mb-2"
+			data-test-id="list-dropdown"
+		>
+			<button
+				class="btn btn-outline-dark dropdown-toggle"
+				type="button"
+				data-bs-toggle="dropdown"
+				aria-expanded="false"
+			>
+				<font-awesome-icon icon="list" />
+			</button>
+			<ul class="dropdown-menu">
+				<li
+					v-if="!showTrainingModeCard"
+					data-test-id="training-mode-option"
+					@click="showTrainingModeCard = true"
+				>
+					<a class="dropdown-item">Add Training Mode Card</a>
+				</li>
+				<li
+					v-if="!showZoneCard"
+					data-test-id="zone-option"
+					@click="showZoneCard = true"
+				>
+					<a class="dropdown-item">Add Workout Zones Card</a>
+				</li>
+				<li
+					v-if="!showRpeCard"
+					data-test-id="rpe-option"
+					@click="showRpeCard = true"
+				>
+					<a class="dropdown-item">Add RPE Card</a>
+				</li>
+			</ul>
+		</div>
 		<training-mode-card
+			v-if="showTrainingModeCard"
 			data-test-id="training-mode-card"
 			:mode="props.trainingDay.mode"
+			@close="showTrainingModeCard = false"
 		/>
 		<timer-card
 			v-show="timer === currentTimer"
@@ -75,8 +117,16 @@ const upcomingTimer = computed(() => {
 				/></a>
 			</p>
 		</div>
-		<zone-chart />
-		<rpe-chart />
+		<zone-chart
+			v-if="showZoneCard"
+			data-test-id="zone-chart"
+			@close="showZoneCard = false"
+		/>
+		<rpe-chart
+			v-if="showRpeCard"
+			data-test-id="rpe-chart"
+			@close="showRpeCard = false"
+		/>
 	</div>
 	<div v-else>
 		<div

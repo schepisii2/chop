@@ -9,8 +9,10 @@ import {
 	faForwardStep,
 	faHeartPulse,
 	faHourglassHalf,
-	faSquarePlus,
+	faList,
 	faSquareMinus,
+	faSquarePlus,
+	faSquareXmark,
 } from '@fortawesome/free-solid-svg-icons';
 
 const app = createApp(App);
@@ -21,8 +23,10 @@ library.add(faDumbbell);
 library.add(faForwardStep);
 library.add(faHeartPulse);
 library.add(faHourglassHalf);
-library.add(faSquarePlus);
+library.add(faList);
 library.add(faSquareMinus);
+library.add(faSquarePlus);
+library.add(faSquareXmark);
 
 app.component('font-awesome-icon', FontAwesomeIcon);
 app.mount('#app');

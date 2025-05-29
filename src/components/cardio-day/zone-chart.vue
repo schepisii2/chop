@@ -1,8 +1,8 @@
 <script setup>
-import { ref } from 'vue';
+import { defineEmits } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-const expanded = ref(true);
+const emits = defineEmits(['close']);
 </script>
 
 <template>
@@ -11,22 +11,14 @@ const expanded = ref(true);
 			<div class="d-flex justify-content-between">
 				<h5 class="card-title" data-test-id="title">Workout Zones</h5>
 				<font-awesome-icon
-					v-if="expanded"
-					icon="square-minus"
+					icon="square-xmark"
 					size="2x"
-					data-test-id="collapse-button"
-					@click="expanded = false"
-				/>
-				<font-awesome-icon
-					v-else
-					icon="square-plus"
-					size="2x"
-					data-test-id="expand-button"
-					@click="expanded = true"
+					data-test-id="close-button"
+					@click="emits('close')"
 				/>
 			</div>
 		</div>
-		<div class="card-body" v-if="expanded">
+		<div class="card-body">
 			<table class="table">
 				<thead>
 					<tr>
