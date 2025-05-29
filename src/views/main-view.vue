@@ -6,15 +6,14 @@ import TrainingDaySelector from '../components/training-day-selector.vue';
 import CardioDayCard from '../components/cardio-day-card.vue';
 import GymExercisesCard from '../components/gym-exercises-card.vue';
 import { ExerciseType } from '../models/training-days';
+import { Page } from '../models/page-enum';
 
-const showTitle = ref(true);
-const showDisclaimer = ref(false);
-const showTrainingDaySelector = ref(true);
+const currentPage = ref(Page.TitlePage);
 
 const trainingDay = ref({});
 function start(day) {
 	trainingDay.value = day;
-	showTrainingDaySelector.value = false;
+	currentPage.value = Page.TrainingDay;
 }
 
 const typeText = computed(() => {
@@ -36,25 +35,33 @@ const typeText = computed(() => {
 <template>
 	<nav class="m-1" aria-label="breadcrumb">
 		<ol class="breadcrumb">
-			<li v-if="!showTitle" class="breadcrumb-item">
-				<a href="#" data-test-id="title-breadcrumb" @click="showTitle = true"
+			<li
+				v-if="currentPage != Page.TitlePage && currentPage != Page.Disclaimer"
+				class="breadcrumb-item"
+			>
+				<a
+					href="#"
+					data-test-id="title-breadcrumb"
+					@click="currentPage = Page.TitlePage"
 					>Title Page</a
 				>
 			</li>
 			<li
-				v-if="!showTitle"
+				v-if="
+					currentPage === Page.DaySelector || currentPage === Page.TrainingDay
+				"
 				class="breadcrumb-item"
 				:class="{ showTrainingDaySelector: 'active' }"
 			>
 				<a
 					href="#"
 					data-test-id="selector-breadcrumb"
-					@click="showTrainingDaySelector = true"
+					@click="currentPage = Page.DaySelector"
 					>Day Selector</a
 				>
 			</li>
 			<li
-				v-if="!showTitle && !showTrainingDaySelector"
+				v-if="currentPage === Page.TrainingDay"
 				class="breadcrumb-item active"
 				data-test-id="selected-day-breadcrumb"
 			>
@@ -63,22 +70,22 @@ const typeText = computed(() => {
 		</ol>
 	</nav>
 	<disclaimer-information
-		v-if="showDisclaimer"
+		v-if="currentPage === Page.Disclaimer"
 		data-test-id="disclaimer-information"
-		@close="showDisclaimer = false"
+		@close="currentPage = Page.TitlePage"
 	/>
 	<title-page
-		v-else-if="showTitle"
+		v-if="currentPage === Page.TitlePage"
 		data-test-id="title-page"
-		@get-started="showTitle = false"
-		@show-disclaimer="showDisclaimer = true"
+		@get-started="currentPage = Page.DaySelector"
+		@show-disclaimer="currentPage = Page.Disclaimer"
 	/>
 	<training-day-selector
-		v-else-if="showTrainingDaySelector"
+		v-if="currentPage === Page.DaySelector"
 		data-test-id="training-day-selector"
 		@start="start"
 	/>
-	<div v-else class="m-3">
+	<div v-if="currentPage === Page.TrainingDay" class="m-3">
 		<h3 data-test-id="training-day-type">{{ typeText }}</h3>
 		<cardio-day-card
 			v-if="typeText === 'Cardio Day'"
