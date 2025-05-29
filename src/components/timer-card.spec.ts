@@ -7,6 +7,9 @@ describe('Timer Card', () => {
 	it('Shows title', () => {
 		const w = shallowMount(TimerCard, {
 			props: { duration: 10, zone: TrainingZone.WarmUp },
+			global: {
+				stubs: ['FontAwesomeIcon'],
+			},
 		});
 		expect(w.find('[data-test-id="timer-title"]').text()).toBe(
 			'10 Minutes - Warm Up',
@@ -15,12 +18,18 @@ describe('Timer Card', () => {
 	it('Shows time remaining', () => {
 		const w = shallowMount(TimerCard, {
 			props: { duration: 10, zone: TrainingZone.WarmUp },
+			global: {
+				stubs: ['FontAwesomeIcon'],
+			},
 		});
 		expect(w.find('[data-test-id="time-remaining"]').text()).toBe('10:00');
 	});
 	it('Shows start button - hides stop button', () => {
 		const w = shallowMount(TimerCard, {
 			props: { duration: 10, zone: TrainingZone.WarmUp },
+			global: {
+				stubs: ['FontAwesomeIcon'],
+			},
 		});
 		expect(w.find('[data-test-id="start-button"]').text()).toBe('Start');
 		expect(w.find('[data-test-id="stop-button"]').exists()).toBeFalsy();
@@ -28,6 +37,9 @@ describe('Timer Card', () => {
 	it('Hides start button on-click - shows stop button', async () => {
 		const w = shallowMount(TimerCard, {
 			props: { duration: 10, zone: TrainingZone.WarmUp },
+			global: {
+				stubs: ['FontAwesomeIcon'],
+			},
 		});
 
 		await w.get('[data-test-id="start-button"').trigger('click');
@@ -41,6 +53,9 @@ describe('Timer Card', () => {
 		HTMLMediaElement.prototype.play = mockNotification;
 		const w = shallowMount(TimerCard, {
 			props: { duration: 10, zone: TrainingZone.WarmUp },
+			global: {
+				stubs: ['FontAwesomeIcon'],
+			},
 		});
 
 		await w.get('[data-test-id="start-button"').trigger('click');
@@ -52,6 +67,9 @@ describe('Timer Card', () => {
 	it('Shows zone information', () => {
 		const w = shallowMount(TimerCard, {
 			props: { duration: 3, zone: TrainingZone.MSS },
+			global: {
+				stubs: ['FontAwesomeIcon'],
+			},
 		});
 		expect(w.find('[data-test-id="timer-title"]').text()).toBe(
 			'3 Minutes - Maximal Steady State (MSS)',
