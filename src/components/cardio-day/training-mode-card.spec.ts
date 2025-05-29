@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { shallowMount } from '@vue/test-utils';
-import { TrainingMode } from '../models/training-days';
+import { TrainingMode } from '../../models/training-days';
 import TrainingModeCard from './training-mode-card.vue';
 
 describe('Training Mode Card', () => {

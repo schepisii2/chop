@@ -1,7 +1,7 @@
 import TimerCard from './timer-card.vue';
 import { shallowMount } from '@vue/test-utils';
 import { describe, it, expect, vi } from 'vitest';
-import { TrainingZone } from '../models/training-days';
+import { TrainingZone } from '../../models/training-days';
 
 describe('Timer Card', () => {
 	it('Shows title', () => {

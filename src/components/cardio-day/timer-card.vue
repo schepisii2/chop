@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps, defineEmits, ref } from 'vue';
-import NotificationSound from '../audio/notification.mp3';
+import NotificationSound from '../../audio/notification.mp3';
 
 const props = defineProps(['duration', 'zone', 'remainingTime']);
 const emits = defineEmits(['close']);

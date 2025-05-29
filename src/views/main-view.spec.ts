@@ -3,7 +3,7 @@ import { flushPromises, shallowMount } from '@vue/test-utils';
 import { describe, it, expect } from 'vitest';
 import DisclaimerInformation from '../components/disclaimer-information.vue';
 import { ExerciseType, TrainingZone } from '../models/training-days';
-import CardioDayCard from '../components/cardio-day-card.vue';
+import CardioDayCard from '../components/cardio-day/cardio-day-card.vue';
 import GymExercisesCard from '../components/gym-exercises-card.vue';
 
 describe('Title Page', () => {

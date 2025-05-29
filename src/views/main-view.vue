@@ -3,7 +3,7 @@ import { ref, computed } from 'vue';
 import DisclaimerInformation from '../components/disclaimer-information.vue';
 import TitlePage from '../components/title-page.vue';
 import TrainingDaySelector from '../components/training-day-selector.vue';
-import CardioDayCard from '../components/cardio-day-card.vue';
+import CardioDayCard from '../components/cardio-day/cardio-day-card.vue';
 import GymExercisesCard from '../components/gym-exercises-card.vue';
 import { ExerciseType } from '../models/training-days';
 import { Page } from '../models/page-enum';

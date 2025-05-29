@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import { describe, it, expect } from 'vitest';
 import CardioDayCard from './cardio-day-card.vue';
-import { ExerciseType, TrainingZone } from '../models/training-days';
+import { ExerciseType, TrainingZone } from '../../models/training-days';
 
 describe('Cardio Day Card', () => {
 	function _getTestTrainingDay() {
