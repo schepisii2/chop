@@ -1,10 +1,12 @@
 <script setup>
 import { defineProps, defineEmits, ref } from 'vue';
 import NotificationSound from '../../audio/notification.mp3';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 const props = defineProps(['duration', 'zone', 'remainingTime']);
 const emits = defineEmits(['close']);
 
+const showReset = ref(false);
 const showStartButton = ref(true);
 
 const totalMinutesLeft = ref(props.remainingTime);
@@ -13,6 +15,7 @@ const secondsLeft = ref(0);
 let timer = {};
 function startTimer() {
 	showStartButton.value = false;
+	showReset.value = true;
 	timer = setInterval(() => {
 		if (secondsLeft.value > 0) {
 			secondsLeft.value = secondsLeft.value - 1;
@@ -28,6 +31,13 @@ function startTimer() {
 function pauseTimer() {
 	clearInterval(timer);
 	showStartButton.value = true;
+}
+function resetTimer() {
+	pauseTimer();
+	showReset.value = false;
+	totalMinutesLeft.value = props.remainingTime;
+	minutesLeft.value = props.duration;
+	secondsLeft.value = 0;
 }
 function endTimer() {
 	try {
@@ -68,24 +78,35 @@ function endTimer() {
 					})
 				}}
 			</h1>
-			<button
-				v-if="showStartButton"
-				type="button"
-				class="btn btn-outline-dark"
-				data-test-id="start-button"
-				@click="startTimer"
-			>
-				Start
-			</button>
-			<button
-				v-if="!showStartButton"
-				type="button"
-				class="btn btn-outline-dark"
-				data-test-id="stop-button"
-				@click="pauseTimer"
-			>
-				Stop
-			</button>
+			<div class="d-flex justify-content-center">
+				<button
+					v-if="showStartButton"
+					type="button"
+					class="btn btn-outline-dark w-100"
+					data-test-id="start-button"
+					@click="startTimer"
+				>
+					Start
+				</button>
+				<button
+					v-if="!showStartButton"
+					type="button"
+					class="btn btn-outline-dark w-100"
+					data-test-id="stop-button"
+					@click="pauseTimer"
+				>
+					Stop
+				</button>
+				<font-awesome-icon
+					v-if="showReset"
+					size="sm"
+					class="my-auto mx-2"
+					style="height: 20px; width: 20px"
+					icon="arrow-rotate-left"
+					data-test-id="reset-button"
+					@click="resetTimer"
+				/>
+			</div>
 			<hr v-if="props.zone.heartRate || props.zone.perceivedExertion" />
 			<div class="d-flex justify-content-around">
 				<p v-if="props.zone.heartRate" data-test-id="heart-rate">
