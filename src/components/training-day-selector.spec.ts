@@ -38,9 +38,15 @@ describe('Training Day Selector', () => {
 		expect(w.find('[data-test-id="month-header"]').text()).toBe('Month 8');
 		expect(w.find('[data-test-id="forward-button"]').exists()).toBeFalsy();
 	});
-	it('renders day selectors', () => {
+	it('renders cardio day with timers', () => {
 		const w = shallowMount(TrainingDaySelector);
-		expect(w.find('[data-test-id="day1-selector"]').exists()).toBeTruthy();
+
+		// Rest Day does not have timers
+		expect(w.find('[data-test-id="day1-selector"]').text()).toBe('1Rest Day');
+		// Cardio Day does have timers
+		expect(w.find('[data-test-id="day2-selector"]').text()).toBe(
+			'2Cardio Day10 min Warm Up3 min Base Pace2 min Recovery3 min Base Pace10 min Cool Down',
+		);
 	});
 	it('renders the correct amount of days for a month', async () => {
 		const w = shallowMount(TrainingDaySelector);

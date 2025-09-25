@@ -46,7 +46,7 @@ function getTrainingDay(day) {
 		</div>
 		<!-- Day Selector -->
 		<table class="table table-bordered">
-			<thead>
+			<thead class="text-center">
 				<tr>
 					<th scope="col">Sun</th>
 					<th scope="col">Mon</th>
@@ -67,7 +67,17 @@ function getTrainingDay(day) {
 						@click="selectedDay = day"
 					>
 						<div>{{ day }}</div>
-						<div class="text-center">{{ getTrainingDay(day).type }}</div>
+						<div class="text-center">
+							<strong>{{ getTrainingDay(day).type }}</strong>
+							<div v-if="getTrainingDay(day).type === 'Cardio Day'">
+								<div
+									v-for="timer in getTrainingDay(day).timers"
+									v-bind:key="timer"
+								>
+									{{ timer.duration }} min {{ timer.zone.label }}
+								</div>
+							</div>
+						</div>
 					</td>
 				</tr>
 				<tr>
@@ -79,7 +89,17 @@ function getTrainingDay(day) {
 						@click="selectedDay = day"
 					>
 						<div>{{ day }}</div>
-						<div class="text-center">{{ getTrainingDay(day).type }}</div>
+						<div class="text-center">
+							<strong>{{ getTrainingDay(day).type }}</strong>
+							<div v-if="getTrainingDay(day).type === 'Cardio Day'">
+								<div
+									v-for="timer in getTrainingDay(day).timers"
+									v-bind:key="timer"
+								>
+									{{ timer.duration }} min {{ timer.zone.label }}
+								</div>
+							</div>
+						</div>
 					</td>
 				</tr>
 				<tr>
@@ -91,7 +111,17 @@ function getTrainingDay(day) {
 						@click="selectedDay = day"
 					>
 						<div>{{ day }}</div>
-						<div class="text-center">{{ getTrainingDay(day).type }}</div>
+						<div class="text-center">
+							<strong>{{ getTrainingDay(day).type }}</strong>
+							<div v-if="getTrainingDay(day).type === 'Cardio Day'">
+								<div
+									v-for="timer in getTrainingDay(day).timers"
+									v-bind:key="timer"
+								>
+									{{ timer.duration }} min {{ timer.zone.label }}
+								</div>
+							</div>
+						</div>
 					</td>
 				</tr>
 				<tr>
@@ -103,7 +133,17 @@ function getTrainingDay(day) {
 						@click="selectedDay = day"
 					>
 						<div>{{ day }}</div>
-						<div class="text-center">{{ getTrainingDay(day).type }}</div>
+						<div class="text-center">
+							<strong>{{ getTrainingDay(day).type }}</strong>
+							<div v-if="getTrainingDay(day).type === 'Cardio Day'">
+								<div
+									v-for="timer in getTrainingDay(day).timers"
+									v-bind:key="timer"
+								>
+									{{ timer.duration }} min {{ timer.zone.label }}
+								</div>
+							</div>
+						</div>
 					</td>
 				</tr>
 				<tr>
@@ -115,7 +155,17 @@ function getTrainingDay(day) {
 						@click="selectedDay = day"
 					>
 						<div>{{ day }}</div>
-						<div class="text-center">{{ getTrainingDay(day).type }}</div>
+						<div class="text-center">
+							<strong>{{ getTrainingDay(day).type }}</strong>
+							<div v-if="getTrainingDay(day).type === 'Cardio Day'">
+								<div
+									v-for="timer in getTrainingDay(day).timers"
+									v-bind:key="timer"
+								>
+									{{ timer.duration }} min {{ timer.zone.label }}
+								</div>
+							</div>
+						</div>
 					</td>
 				</tr>
 			</tbody>
