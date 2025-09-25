@@ -1,7 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue';
-import DisclaimerInformation from '../components/disclaimer-information.vue';
-import TitlePage from '../components/title-page.vue';
+import TitlePage from '../components/title-page/title-page.vue';
 import TrainingDaySelector from '../components/training-day-selector.vue';
 import CardioDayCard from '../components/cardio-day/cardio-day-card.vue';
 import GymExercisesCard from '../components/gym-exercises-card.vue';
@@ -69,16 +68,10 @@ const typeText = computed(() => {
 			</li>
 		</ol>
 	</nav>
-	<disclaimer-information
-		v-if="currentPage === Page.Disclaimer"
-		data-test-id="disclaimer-information"
-		@close="currentPage = Page.TitlePage"
-	/>
 	<title-page
 		v-if="currentPage === Page.TitlePage"
 		data-test-id="title-page"
 		@get-started="currentPage = Page.DaySelector"
-		@show-disclaimer="currentPage = Page.Disclaimer"
 	/>
 	<training-day-selector
 		v-if="currentPage === Page.DaySelector"

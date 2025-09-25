@@ -1,7 +1,6 @@
 import MainView from './main-view.vue';
-import { flushPromises, shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import { describe, it, expect } from 'vitest';
-import DisclaimerInformation from '../components/disclaimer-information.vue';
 import { ExerciseType, TrainingZone } from '../models/training-days';
 import CardioDayCard from '../components/cardio-day/cardio-day-card.vue';
 import GymExercisesCard from '../components/gym-exercises-card.vue';
@@ -15,13 +14,6 @@ describe('Title Page', () => {
 		const w = shallowMount(MainView);
 		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
 			'get-started',
-		);
-		expect(w.find('[data-test-id="title-page"]').exists()).toBeFalsy();
-	});
-	it('does not show the title page when "show-disclaimer" is emitted', async () => {
-		const w = shallowMount(MainView);
-		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
-			'show-disclaimer',
 		);
 		expect(w.find('[data-test-id="title-page"]').exists()).toBeFalsy();
 	});
@@ -101,39 +93,6 @@ describe('Breadcrumbs', () => {
 		expect(
 			w.find('[data-test-id="training-day-selector"]').exists(),
 		).toBeTruthy();
-	});
-});
-
-describe('Disclaimer', () => {
-	it('does not show disclaimer on page load', () => {
-		const w = shallowMount(MainView);
-		expect(
-			w.find('[data-test-id="disclaimer-information"]').exists(),
-		).toBeFalsy();
-	});
-	it('shows disclaimer when "show-disclaimer" is emitted', async () => {
-		const w = shallowMount(MainView);
-
-		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
-			'show-disclaimer',
-		);
-
-		expect(
-			w.find('[data-test-id="disclaimer-information"]').exists(),
-		).toBeTruthy();
-	});
-	it('closes disclaimer when close emitted', async () => {
-		const w = shallowMount(MainView);
-
-		await (w.getComponent('[data-test-id="title-page"]') as any).vm.$emit(
-			'show-disclaimer',
-		);
-		w.getComponent(DisclaimerInformation).vm.$emit('close');
-		await flushPromises();
-
-		expect(
-			w.find('[data-test-id="disclaimer-information"]').exists(),
-		).toBeFalsy();
 	});
 });
 

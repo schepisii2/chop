@@ -1,10 +1,18 @@
 <script setup>
-import { defineEmits } from 'vue';
-const emits = defineEmits(['get-started', 'show-disclaimer']);
+import DisclaimerInformationCard from './disclaimer-information-card.vue';
+import { defineEmits, ref } from 'vue';
+const emits = defineEmits(['get-started']);
+
+const showDisclaimer = ref(false);
 </script>
 
 <template>
-	<div class="d-flex flex-column">
+	<disclaimer-information-card
+		v-if="showDisclaimer"
+		data-test-id="disclaimer-information"
+		@close="showDisclaimer = false"
+	/>
+	<div v-else class="d-flex flex-column">
 		<h2 class="d-flex justify-content-center my-5" data-test-id="title">
 			POTS Exercise Program Timer
 		</h2>
@@ -20,7 +28,7 @@ const emits = defineEmits(['get-started', 'show-disclaimer']);
 			type="button"
 			class="btn btn-outline-dark m-1"
 			data-test-id="disclaimer-button"
-			@click="emits('show-disclaimer')"
+			@click="showDisclaimer = true"
 		>
 			See Disclaimer
 		</button>

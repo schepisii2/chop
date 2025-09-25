@@ -1,4 +1,4 @@
-import DisclaimerInformation from './disclaimer-information.vue';
+import DisclaimerInformation from './disclaimer-information-card.vue';
 import { shallowMount } from '@vue/test-utils';
 import { describe, it, expect } from 'vitest';
 
