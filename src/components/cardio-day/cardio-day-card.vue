@@ -2,10 +2,10 @@
 import { ref, computed } from 'vue';
 import { defineProps } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import TrainingModeInformation from './training-mode-information.vue';
+import TrainingModeInformation from './charts/training-mode-information.vue';
 import TimerCard from './timer-card.vue';
-import ZoneChart from './zone-chart.vue';
-import rpeChart from './rpe-chart.vue';
+import ZoneChart from './charts/zone-chart.vue';
+import rpeChart from './charts/rpe-chart.vue';
 
 const props = defineProps(['trainingDay']);
 
