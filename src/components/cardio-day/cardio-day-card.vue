@@ -2,7 +2,7 @@
 import { ref, computed } from 'vue';
 import { defineProps } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import TrainingModeCard from './training-mode-card.vue';
+import TrainingModeInformation from './training-mode-information.vue';
 import TimerCard from './timer-card.vue';
 import ZoneChart from './zone-chart.vue';
 import rpeChart from './rpe-chart.vue';
@@ -80,9 +80,9 @@ const upcomingTimer = computed(() => {
 				</li>
 			</ul>
 		</div>
-		<training-mode-card
+		<training-mode-information
 			v-if="showTrainingModeCard"
-			data-test-id="training-mode-card"
+			data-test-id="training-mode-information"
 			:mode="props.trainingDay.mode"
 			@close="showTrainingModeCard = false"
 		/>

@@ -32,7 +32,9 @@ describe('Cardio Day Card', () => {
 
 		await w.find('[data-test-id="training-mode-option"]').trigger('click');
 
-		expect(w.find('[data-test-id="training-mode-card"]').exists()).toBeTruthy();
+		expect(
+			w.find('[data-test-id="training-mode-information"]').exists(),
+		).toBeTruthy();
 		expect(w.find('[data-test-id="zone-chart"]').exists()).toBeFalsy();
 		expect(w.find('[data-test-id="rpe-chart"]').exists()).toBeFalsy();
 	});
@@ -41,7 +43,9 @@ describe('Cardio Day Card', () => {
 
 		await w.find('[data-test-id="zone-option"]').trigger('click');
 
-		expect(w.find('[data-test-id="training-mode-card"]').exists()).toBeFalsy();
+		expect(
+			w.find('[data-test-id="training-mode-information"]').exists(),
+		).toBeFalsy();
 		expect(w.find('[data-test-id="zone-chart"]').exists()).toBeTruthy();
 		expect(w.find('[data-test-id="rpe-chart"]').exists()).toBeFalsy();
 	});
@@ -50,7 +54,9 @@ describe('Cardio Day Card', () => {
 
 		await w.find('[data-test-id="rpe-option"]').trigger('click');
 
-		expect(w.find('[data-test-id="training-mode-card"]').exists()).toBeFalsy();
+		expect(
+			w.find('[data-test-id="training-mode-information"]').exists(),
+		).toBeFalsy();
 		expect(w.find('[data-test-id="zone-chart"]').exists()).toBeFalsy();
 		expect(w.find('[data-test-id="rpe-chart"]').exists()).toBeTruthy();
 	});
@@ -61,11 +67,15 @@ describe('Cardio Day Card', () => {
 		await w.find('[data-test-id="zone-option"]').trigger('click');
 		await w.find('[data-test-id="rpe-option"]').trigger('click');
 
-		await (w.getComponent('training-mode-card-stub') as any).vm.$emit('close');
+		await (w.getComponent('training-mode-information-stub') as any).vm.$emit(
+			'close',
+		);
 		await (w.getComponent('zone-chart-stub') as any).vm.$emit('close');
 		await (w.getComponent('rpe-chart-stub') as any).vm.$emit('close');
 
-		expect(w.find('[data-test-id="training-mode-card"]').exists()).toBeFalsy();
+		expect(
+			w.find('[data-test-id="training-mode-information"]').exists(),
+		).toBeFalsy();
 		expect(w.find('[data-test-id="zone-chart"]').exists()).toBeFalsy();
 		expect(w.find('[data-test-id="rpe-chart"]').exists()).toBeFalsy();
 	});

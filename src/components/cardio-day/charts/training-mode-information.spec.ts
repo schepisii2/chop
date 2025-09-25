@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { shallowMount } from '@vue/test-utils';
-import { TrainingMode } from '../../models/training-days';
-import TrainingModeCard from './training-mode-card.vue';
+import { TrainingMode } from '../../../models/training-days';
+import TrainingModeCard from './training-mode-information.vue';
 
 describe('Training Mode Card', () => {
 	it('Renders title', () => {
