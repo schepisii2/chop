@@ -4,69 +4,77 @@ import TrainingDaySelector from './training-day-selector.vue';
 import { ExerciseType } from '../models/training-days';
 
 describe('Training Day Selector', () => {
-	it('renders month dropdown', () => {
+	it('renders Month 1 selected on page load', () => {
 		const w = shallowMount(TrainingDaySelector);
-		const expectedMonths = [
-			'Month 1',
-			'Month 2',
-			'Month 3',
-			'Month 4',
-			'Month 5',
-			'Month 6',
-			'Month 7',
-			'Month 8',
-		];
-		expect(w.find('[data-test-id="month-dropdown"]').exists()).toBeTruthy();
-		expectedMonths.forEach((month) => {
-			expect(
-				w.find(`[data-test-id="${month}-dropdown-option"]`).exists(),
-			).toBeTruthy();
-		});
+
+		expect(w.find('[data-test-id="month-header"]').text()).toBe('Month 1');
 	});
-	it('sets selected month on click', async () => {
+	it('does not render back button when Month 1 is selected', async () => {
 		const w = shallowMount(TrainingDaySelector);
-		await w.find('[data-test-id="Month 4-dropdown-option"]').trigger('click');
-		expect((w.vm as any).selectedMonth).toBe('Month 4');
+		expect(w.find('[data-test-id="back-button"]').exists()).toBeFalsy();
 	});
-	it('renders day dropdown', () => {
+	it('selects next month when forward button is clicked', async () => {
 		const w = shallowMount(TrainingDaySelector);
-		expect(w.find('[data-test-id="day-dropdown"]').exists()).toBeTruthy();
+		await w.find('[data-test-id="forward-button"]').trigger('click');
+		expect(w.find('[data-test-id="month-header"]').text()).toBe('Month 2');
+	});
+	it('selects previous month when back button is clicked', async () => {
+		const w = shallowMount(TrainingDaySelector);
+		await w.find('[data-test-id="forward-button"]').trigger('click');
+		await w.find('[data-test-id="back-button"]').trigger('click');
+		expect(w.find('[data-test-id="month-header"]').text()).toBe('Month 1');
+	});
+	it('does not render forward button when Month 8 is selected', async () => {
+		const w = shallowMount(TrainingDaySelector);
+
+		await w.find('[data-test-id="forward-button"]').trigger('click');
+		await w.find('[data-test-id="forward-button"]').trigger('click');
+		await w.find('[data-test-id="forward-button"]').trigger('click');
+		await w.find('[data-test-id="forward-button"]').trigger('click');
+		await w.find('[data-test-id="forward-button"]').trigger('click');
+		await w.find('[data-test-id="forward-button"]').trigger('click');
+		await w.find('[data-test-id="forward-button"]').trigger('click');
+
+		expect(w.find('[data-test-id="month-header"]').text()).toBe('Month 8');
+		expect(w.find('[data-test-id="forward-button"]').exists()).toBeFalsy();
+	});
+	it('renders day selectors', () => {
+		const w = shallowMount(TrainingDaySelector);
+		expect(w.find('[data-test-id="day1-selector"]').exists()).toBeTruthy();
 	});
 	it('renders the correct amount of days for a month', async () => {
 		const w = shallowMount(TrainingDaySelector);
 
-		// Month 4 has 28 days
-		await w.find('[data-test-id="Month 4-dropdown-option"]').trigger('click');
-		for (let i = 1; i <= 28; i++) {
-			expect(
-				w.find(`[data-test-id="${i}-dropdown-option"]`).exists(),
-			).toBeTruthy();
+		// Month 2 has 35 days
+		await w.find('[data-test-id="forward-button"]').trigger('click');
+		for (let i = 1; i <= 35; i++) {
+			expect(w.find(`[data-test-id="day${i}-selector"]`).exists()).toBeTruthy();
 		}
 
-		// Month 2 has 35 days
-		await w.find('[data-test-id="Month 2-dropdown-option"]').trigger('click');
-		for (let i = 1; i <= 35; i++) {
-			expect(
-				w.find(`[data-test-id="${i}-dropdown-option"]`).exists(),
-			).toBeTruthy();
+		// Month 4 has 28 days
+		await w.find('[data-test-id="forward-button"]').trigger('click'); // Month 3
+		await w.find('[data-test-id="forward-button"]').trigger('click'); // Month 4
+		for (let i = 1; i <= 28; i++) {
+			expect(w.find(`[data-test-id="day${i}-selector"]`).exists()).toBeTruthy();
 		}
 	});
 	it('renders start button', () => {
 		const w = shallowMount(TrainingDaySelector);
-		expect(
-			w.find('[data-test-id="start-training-day-button"]').exists(),
-		).toBeTruthy();
+		expect(w.find('[data-test-id="start-button"]').exists()).toBeTruthy();
 	});
 	it('emits training day on button click', async () => {
 		const w = shallowMount(TrainingDaySelector);
-		await w.find('[data-test-id="Month 4-dropdown-option"]').trigger('click');
-		await w.find('[data-test-id="start-training-day-button"]').trigger('click');
+
+		await w.find('[data-test-id="forward-button"]').trigger('click');
+		await w.find('[data-test-id="day14-selector"]').trigger('click');
+		await w.find('[data-test-id="start-button"]').trigger('click');
+
 		expect(w.emitted('start')).toBeTruthy();
 		expect(w.emitted('start')).toStrictEqual([
 			[
 				{
-					month: 'Month 4',
-					day: 1,
+					month: 'Month 2',
+					day: 14,
 					type: ExerciseType.Rest,
 				},
 			],
