@@ -45,7 +45,7 @@ function getTrainingDay(day) {
 			/>
 		</div>
 		<!-- Day Selector -->
-		<table class="table table-bordered">
+		<table class="table table-responsive table-bordered">
 			<thead class="text-center">
 				<tr>
 					<th scope="col">Sun</th>
