@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue';
 import TitlePage from '../components/title-page/title-page.vue';
-import TrainingDaySelector from '../components/training-day-selector.vue';
+import TrainingDaySelector from '../components/day-selector-page/day-selector-page.vue';
 import CardioDayCard from '../components/cardio-day/cardio-day-card.vue';
 import GymExercisesCard from '../components/gym-exercises-card.vue';
 import { ExerciseType } from '../models/training-days';

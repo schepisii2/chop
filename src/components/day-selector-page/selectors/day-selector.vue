@@ -1,50 +1,30 @@
 <script setup>
-import { computed, ref, defineEmits } from 'vue';
-import { TRAINING_CALENDAR } from '../models/training-days';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { computed, ref, defineProps, defineEmits } from 'vue';
+import { TRAINING_CALENDAR } from '../../../models/training-days';
 
-const emits = defineEmits(['start']);
-
-const monthIndex = ref(0);
-const months = [...new Set(TRAINING_CALENDAR.map((d) => d.month))];
+const props = defineProps(['month']);
+const emits = defineEmits(['set-day']);
 
 const selectedDay = ref(1);
 const days = computed(() => {
-	return TRAINING_CALENDAR.filter(
-		(d) => d.month === months.at(monthIndex.value),
-	).map((d) => d.day);
+	return TRAINING_CALENDAR.filter((d) => d.month === props.month).map(
+		(d) => d.day,
+	);
 });
 
-const trainingDay = computed(() => {
-	return getTrainingDay(selectedDay.value);
-});
+function setDay(day) {
+	selectedDay.value = day;
+	emits('set-day', day);
+}
+
 function getTrainingDay(day) {
 	return TRAINING_CALENDAR.find(
-		(d) => d.month === months.at(monthIndex.value) && d.day === day,
+		(d) => d.month === props.month && d.day === day,
 	);
 }
 </script>
 <template>
-	<div>
-		<!-- Month Selector -->
-		<div class="d-flex justify-content-center align-items-center">
-			<font-awesome-icon
-				v-if="monthIndex !== 0"
-				icon="backward-step"
-				data-test-id="back-button"
-				@click="monthIndex--"
-			/>
-			<h3 class="mx-4" data-test-id="month-header">
-				{{ months.at(monthIndex) }}
-			</h3>
-			<font-awesome-icon
-				v-if="monthIndex !== months.length - 1"
-				icon="forward-step"
-				data-test-id="forward-button"
-				@click="monthIndex++"
-			/>
-		</div>
-		<!-- Day Selector -->
+	<div class="py-2 px-4">
 		<table class="table table-bordered">
 			<thead class="text-center">
 				<tr>
@@ -64,7 +44,7 @@ function getTrainingDay(day) {
 						v-bind:key="day"
 						:data-test-id="'day' + day + '-selector'"
 						:class="selectedDay === day ? 'table-dark' : 'table-light'"
-						@click="selectedDay = day"
+						@click="setDay(day)"
 					>
 						<div>{{ day }}</div>
 						<div class="text-center">
@@ -86,7 +66,7 @@ function getTrainingDay(day) {
 						v-bind:key="day"
 						:data-test-id="'day' + day + '-selector'"
 						:class="selectedDay === day ? 'table-dark' : 'table-light'"
-						@click="selectedDay = day"
+						@click="setDay(day)"
 					>
 						<div>{{ day }}</div>
 						<div class="text-center">
@@ -108,7 +88,7 @@ function getTrainingDay(day) {
 						v-bind:key="day"
 						:data-test-id="'day' + day + '-selector'"
 						:class="selectedDay === day ? 'table-dark' : 'table-light'"
-						@click="selectedDay = day"
+						@click="setDay(day)"
 					>
 						<div>{{ day }}</div>
 						<div class="text-center">
@@ -130,7 +110,7 @@ function getTrainingDay(day) {
 						v-bind:key="day"
 						:data-test-id="'day' + day + '-selector'"
 						:class="selectedDay === day ? 'table-dark' : 'table-light'"
-						@click="selectedDay = day"
+						@click="setDay(day)"
 					>
 						<div>{{ day }}</div>
 						<div class="text-center">
@@ -152,7 +132,7 @@ function getTrainingDay(day) {
 						v-bind:key="day"
 						:data-test-id="'day' + day + '-selector'"
 						:class="selectedDay === day ? 'table-dark' : 'table-light'"
-						@click="selectedDay = day"
+						@click="setDay(day)"
 					>
 						<div>{{ day }}</div>
 						<div class="text-center">
@@ -170,15 +150,5 @@ function getTrainingDay(day) {
 				</tr>
 			</tbody>
 		</table>
-		<div class="d-flex justify-content-center m-1">
-			<button
-				type="button"
-				class="btn btn-dark"
-				data-test-id="start-button"
-				@click="emits('start', trainingDay)"
-			>
-				Start
-			</button>
-		</div>
 	</div>
 </template>
