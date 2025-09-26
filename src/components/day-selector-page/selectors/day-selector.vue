@@ -22,11 +22,108 @@ function getTrainingDay(day) {
 		(d) => d.month === props.month && d.day === day,
 	);
 }
+
+const useMiniSelector = computed(() => {
+	if (window.innerWidth && window.innerWidth > 500) {
+		return false;
+	}
+	return true;
+});
 </script>
 <template>
 	<div class="py-2 px-4">
-		<table class="table table-bordered">
-			<thead class="text-center">
+		<div v-if="useMiniSelector">
+			<table class="table table-bordered text-center h-75">
+				<thead data-test-id="table-headers">
+					<tr>
+						<th scope="col">S</th>
+						<th scope="col">M</th>
+						<th scope="col">T</th>
+						<th scope="col">W</th>
+						<th scope="col">T</th>
+						<th scope="col">F</th>
+						<th scope="col">S</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td
+							v-for="day in days.slice(0, 7)"
+							v-bind:key="day"
+							:data-test-id="'day' + day + '-selector'"
+							:class="selectedDay === day ? 'table-dark' : 'table-light'"
+							@click="setDay(day)"
+						>
+							{{ day }}
+						</td>
+					</tr>
+					<tr>
+						<td
+							v-for="day in days.slice(7, 14)"
+							v-bind:key="day"
+							:data-test-id="'day' + day + '-selector'"
+							:class="selectedDay === day ? 'table-dark' : 'table-light'"
+							@click="setDay(day)"
+						>
+							{{ day }}
+						</td>
+					</tr>
+					<tr>
+						<td
+							v-for="day in days.slice(14, 21)"
+							v-bind:key="day"
+							:data-test-id="'day' + day + '-selector'"
+							:class="selectedDay === day ? 'table-dark' : 'table-light'"
+							@click="setDay(day)"
+						>
+							{{ day }}
+						</td>
+					</tr>
+					<tr>
+						<td
+							v-for="day in days.slice(21, 28)"
+							v-bind:key="day"
+							:data-test-id="'day' + day + '-selector'"
+							:class="selectedDay === day ? 'table-dark' : 'table-light'"
+							@click="setDay(day)"
+						>
+							{{ day }}
+						</td>
+					</tr>
+					<tr>
+						<td
+							v-for="day in days.slice(28, 35)"
+							v-bind:key="day"
+							:data-test-id="'day' + day + '-selector'"
+							:class="selectedDay === day ? 'table-dark' : 'table-light'"
+							@click="setDay(day)"
+						>
+							{{ day }}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div
+				data-test-id="day-information-alert"
+				class="alert alert-dark"
+				role="alert"
+			>
+				<strong>Day {{ selectedDay }}</strong>
+				<div>{{ getTrainingDay(selectedDay).type }}</div>
+				<div v-if="getTrainingDay(selectedDay).type === 'Cardio Day'">
+					<ul>
+						<li
+							v-for="timer in getTrainingDay(selectedDay).timers"
+							v-bind:key="timer"
+						>
+							{{ timer.duration }} min {{ timer.zone.label }}
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<table v-else class="table table-bordered">
+			<thead data-test-id="table-headers" class="text-center">
 				<tr>
 					<th scope="col">Sun</th>
 					<th scope="col">Mon</th>
