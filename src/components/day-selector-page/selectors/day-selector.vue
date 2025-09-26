@@ -111,6 +111,7 @@ const useMiniSelector = computed(() => {
 				<strong>Day {{ selectedDay }}</strong>
 				<div>{{ getTrainingDay(selectedDay).type }}</div>
 				<div v-if="getTrainingDay(selectedDay).type === 'Cardio Day'">
+					<div>Training Mode {{ getTrainingDay(selectedDay).mode.id }}</div>
 					<ul>
 						<li
 							v-for="timer in getTrainingDay(selectedDay).timers"

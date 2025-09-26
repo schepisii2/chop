@@ -39,7 +39,7 @@ describe('Day Selector', () => {
 			await w.find('[data-test-id="day2-selector"]').trigger('click');
 
 			expect(w.find('[data-test-id="day-information-alert"]').text()).toBe(
-				'Day 2Cardio Day10 min Warm Up3 min Base Pace2 min Recovery3 min Base Pace10 min Cool Down',
+				'Day 2Cardio DayTraining Mode 110 min Warm Up3 min Base Pace2 min Recovery3 min Base Pace10 min Cool Down',
 			);
 		});
 	});
