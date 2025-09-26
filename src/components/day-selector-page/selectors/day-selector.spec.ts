@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { shallowMount } from '@vue/test-utils';
 import DaySelector from './day-selector.vue';
-import { ExerciseType } from '../../../models/training-days';
 
 describe('Day Selector', () => {
 	it('renders cardio day with timers', () => {
