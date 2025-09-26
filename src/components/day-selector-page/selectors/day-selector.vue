@@ -24,8 +24,11 @@ function getTrainingDay(day) {
 }
 </script>
 <template>
+	<<<<<<< HEAD:src/components/day-selector-page/selectors/day-selector.vue
 	<div class="py-2 px-4">
 		<table class="table table-bordered">
+			======= >>>>>>>
+			0825aee0813734440ca9465ae0e36d2927be8528:src/components/training-day-selector.vue
 			<thead class="text-center">
 				<tr>
 					<th scope="col">Sun</th>
