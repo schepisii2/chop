@@ -18,6 +18,31 @@ function getTrainingDay(day) {
 	);
 }
 
+function getPreviousMonth() {
+	switch (selectedMonth.value) {
+		case 'Month 8':
+			return 'Month 7';
+		case 'Month 7':
+			return 'Month 6';
+		case 'Month 6':
+			return 'Month 5';
+		case 'Month 5':
+			return 'Month 4';
+		case 'Month 4':
+			return 'Month 3';
+		case 'Month 3':
+			return 'Month 2';
+		default:
+			return 'Month 1';
+	}
+}
+function getDaysInMonth(month) {
+	const allDays = TRAINING_CALENDAR.filter((d) => d.month === month).map(
+		(d) => d.day,
+	);
+	return allDays.at(-1);
+}
+
 const lastCompletedDay = ref({
 	month: 'Month 1',
 	day: 1,
@@ -32,6 +57,15 @@ function markDayComplete() {
 	lastCompletedDay.value.month = selectedMonth.value;
 	lastCompletedDay.value.day = selectedDay.value;
 }
+function markDayIncomplete() {
+	if (selectedDay.value === 1) {
+		lastCompletedDay.value.month = getPreviousMonth();
+		lastCompletedDay.value.day = getDaysInMonth(lastCompletedDay.value.month);
+	} else {
+		lastCompletedDay.value.month = selectedMonth.value;
+		lastCompletedDay.value.day = selectedDay.value - 1;
+	}
+}
 </script>
 <template>
 	<div>
@@ -41,7 +75,17 @@ function markDayComplete() {
 			:last-completed-day="lastCompletedDay"
 			@set-day="selectedDay = $event"
 		/>
-		<div v-if="!isDayComplete" class="d-flex justify-content-center m-1">
+		<div v-if="isDayComplete" class="d-flex justify-content-center m-1">
+			<button
+				type="button"
+				class="btn btn btn-outline-dark"
+				data-test-id="mark-incomplete-button"
+				@click="markDayIncomplete"
+			>
+				Mark Incomplete
+			</button>
+		</div>
+		<div v-else class="d-flex justify-content-center m-1">
 			<button
 				type="button"
 				class="btn btn-dark me-2"

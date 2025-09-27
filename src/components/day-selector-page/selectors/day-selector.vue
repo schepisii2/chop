@@ -24,10 +24,10 @@ function getTrainingDay(day) {
 }
 
 function isDayComplete(day) {
-	if (props.month.slice(-1) > props.lastCompletedDay.month.slice(-1)) {
-		return false;
+	if (props.month.slice(-1) === props.lastCompletedDay.month.slice(-1)) {
+		return day <= props.lastCompletedDay.day;
 	}
-	return day <= props.lastCompletedDay.day;
+	return props.month.slice(-1) < props.lastCompletedDay.month.slice(-1);
 }
 
 const useMiniSelector = computed(() => {

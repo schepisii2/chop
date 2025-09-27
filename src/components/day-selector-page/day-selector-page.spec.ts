@@ -22,6 +22,9 @@ describe('Training Day Selector', () => {
 		expect(
 			w.find('[data-test-id="mark-complete-button"]').exists(),
 		).toBeTruthy();
+		expect(
+			w.find('[data-test-id="mark-incomplete-button"]').exists(),
+		).toBeFalsy();
 	});
 	it('does not render start & mark complete button for complete days', () => {
 		const w = shallowMount(DaySelectorPage);
@@ -31,6 +34,9 @@ describe('Training Day Selector', () => {
 		expect(
 			w.find('[data-test-id="mark-complete-button"]').exists(),
 		).toBeFalsy();
+		expect(
+			w.find('[data-test-id="mark-incomplete-button"]').exists(),
+		).toBeTruthy();
 	});
 	it('emits training day on start button click', async () => {
 		const w = shallowMount(DaySelectorPage);
@@ -56,22 +62,46 @@ describe('Training Day Selector', () => {
 	it('updates last completed date on mark complete button click', async () => {
 		const w = shallowMount(DaySelectorPage);
 
-		// First, update day selected to Day 14
 		await (w.getComponent('day-selector-stub') as any).vm.$emit('set-day', 14);
-
-		// Confirm buttons show day as incomplete
-		expect(w.find('[data-test-id="start-button"]').exists()).toBeTruthy();
-		expect(
-			w.find('[data-test-id="mark-complete-button"]').exists(),
-		).toBeTruthy();
-
-		// Then, complete Day 14
 		await w.find('[data-test-id="mark-complete-button"]').trigger('click');
 
-		// Confirm buttons show day as complete
-		expect(w.find('[data-test-id="start-button"]').exists()).toBeFalsy();
-		expect(
-			w.find('[data-test-id="mark-complete-button"]').exists(),
-		).toBeFalsy();
+		expect((w.vm as any).lastCompletedDay).toStrictEqual({
+			month: 'Month 1',
+			day: 14,
+		});
+	});
+	it('updates last completed date on mark incomplete button click', async () => {
+		const w = shallowMount(DaySelectorPage);
+
+		// First, complete day 14
+		await (w.getComponent('day-selector-stub') as any).vm.$emit('set-day', 14);
+		await w.find('[data-test-id="mark-complete-button"]').trigger('click');
+		// Then, mark day 12 incomplete
+		await (w.getComponent('day-selector-stub') as any).vm.$emit('set-day', 12);
+		await w.find('[data-test-id="mark-incomplete-button"]').trigger('click');
+
+		expect((w.vm as any).lastCompletedDay).toStrictEqual({
+			month: 'Month 1',
+			day: 11,
+		});
+	});
+	it('updates last completed date on mark incomplete button click, first day of the month case', async () => {
+		const w = shallowMount(DaySelectorPage);
+
+		// First, complete month 2 day 14
+		await (w.getComponent('month-selector-stub') as any).vm.$emit(
+			'set-month',
+			'Month 2',
+		);
+		await (w.getComponent('day-selector-stub') as any).vm.$emit('set-day', 14);
+		await w.find('[data-test-id="mark-complete-button"]').trigger('click');
+		// Then, mark month 2 day 1 incomplete
+		await (w.getComponent('day-selector-stub') as any).vm.$emit('set-day', 1);
+		await w.find('[data-test-id="mark-incomplete-button"]').trigger('click');
+
+		expect((w.vm as any).lastCompletedDay).toStrictEqual({
+			month: 'Month 1',
+			day: 28,
+		});
 	});
 });
