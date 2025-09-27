@@ -46,53 +46,9 @@ const useMiniSelector = computed(() => {
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
+					<tr v-for="i in 5" v-bind:key="i">
 						<td
-							v-for="day in days.slice(0, 7)"
-							v-bind:key="day"
-							:data-test-id="'day' + day + '-selector'"
-							:class="selectedDay === day ? 'table-dark' : 'table-light'"
-							@click="setDay(day)"
-						>
-							{{ day }}
-						</td>
-					</tr>
-					<tr>
-						<td
-							v-for="day in days.slice(7, 14)"
-							v-bind:key="day"
-							:data-test-id="'day' + day + '-selector'"
-							:class="selectedDay === day ? 'table-dark' : 'table-light'"
-							@click="setDay(day)"
-						>
-							{{ day }}
-						</td>
-					</tr>
-					<tr>
-						<td
-							v-for="day in days.slice(14, 21)"
-							v-bind:key="day"
-							:data-test-id="'day' + day + '-selector'"
-							:class="selectedDay === day ? 'table-dark' : 'table-light'"
-							@click="setDay(day)"
-						>
-							{{ day }}
-						</td>
-					</tr>
-					<tr>
-						<td
-							v-for="day in days.slice(21, 28)"
-							v-bind:key="day"
-							:data-test-id="'day' + day + '-selector'"
-							:class="selectedDay === day ? 'table-dark' : 'table-light'"
-							@click="setDay(day)"
-						>
-							{{ day }}
-						</td>
-					</tr>
-					<tr>
-						<td
-							v-for="day in days.slice(28, 35)"
+							v-for="day in days.slice((i - 1) * 7, i * 7)"
 							v-bind:key="day"
 							:data-test-id="'day' + day + '-selector'"
 							:class="selectedDay === day ? 'table-dark' : 'table-light'"
@@ -136,97 +92,9 @@ const useMiniSelector = computed(() => {
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
+				<tr v-for="i in 5" v-bind:key="i">
 					<td
-						v-for="day in days.slice(0, 7)"
-						v-bind:key="day"
-						:data-test-id="'day' + day + '-selector'"
-						:class="selectedDay === day ? 'table-dark' : 'table-light'"
-						@click="setDay(day)"
-					>
-						<div>{{ day }}</div>
-						<div class="text-center">
-							<strong>{{ getTrainingDay(day).type }}</strong>
-							<div v-if="getTrainingDay(day).type === 'Cardio Day'">
-								<div
-									v-for="timer in getTrainingDay(day).timers"
-									v-bind:key="timer"
-								>
-									{{ timer.duration }} min {{ timer.zone.label }}
-								</div>
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td
-						v-for="day in days.slice(7, 14)"
-						v-bind:key="day"
-						:data-test-id="'day' + day + '-selector'"
-						:class="selectedDay === day ? 'table-dark' : 'table-light'"
-						@click="setDay(day)"
-					>
-						<div>{{ day }}</div>
-						<div class="text-center">
-							<strong>{{ getTrainingDay(day).type }}</strong>
-							<div v-if="getTrainingDay(day).type === 'Cardio Day'">
-								<div
-									v-for="timer in getTrainingDay(day).timers"
-									v-bind:key="timer"
-								>
-									{{ timer.duration }} min {{ timer.zone.label }}
-								</div>
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td
-						v-for="day in days.slice(14, 21)"
-						v-bind:key="day"
-						:data-test-id="'day' + day + '-selector'"
-						:class="selectedDay === day ? 'table-dark' : 'table-light'"
-						@click="setDay(day)"
-					>
-						<div>{{ day }}</div>
-						<div class="text-center">
-							<strong>{{ getTrainingDay(day).type }}</strong>
-							<div v-if="getTrainingDay(day).type === 'Cardio Day'">
-								<div
-									v-for="timer in getTrainingDay(day).timers"
-									v-bind:key="timer"
-								>
-									{{ timer.duration }} min {{ timer.zone.label }}
-								</div>
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td
-						v-for="day in days.slice(21, 28)"
-						v-bind:key="day"
-						:data-test-id="'day' + day + '-selector'"
-						:class="selectedDay === day ? 'table-dark' : 'table-light'"
-						@click="setDay(day)"
-					>
-						<div>{{ day }}</div>
-						<div class="text-center">
-							<strong>{{ getTrainingDay(day).type }}</strong>
-							<div v-if="getTrainingDay(day).type === 'Cardio Day'">
-								<div
-									v-for="timer in getTrainingDay(day).timers"
-									v-bind:key="timer"
-								>
-									{{ timer.duration }} min {{ timer.zone.label }}
-								</div>
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td
-						v-for="day in days.slice(28, 35)"
+						v-for="day in days.slice((i - 1) * 7, i * 7)"
 						v-bind:key="day"
 						:data-test-id="'day' + day + '-selector'"
 						:class="selectedDay === day ? 'table-dark' : 'table-light'"
