@@ -101,7 +101,7 @@ function markDayIncomplete() {
 					data-test-id="mark-complete-button"
 					@click="markDayComplete"
 				>
-					Mark Day Complete
+					Mark Complete
 				</button>
 			</div>
 		</div>
