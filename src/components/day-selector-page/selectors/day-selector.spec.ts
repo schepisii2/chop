@@ -3,25 +3,25 @@ import { shallowMount } from '@vue/test-utils';
 import DaySelector from './day-selector.vue';
 
 describe('Day Selector', () => {
+	function mountComponent(month) {
+		return shallowMount(DaySelector, {
+			props: {
+				month,
+				lastCompletedDay: { month: 'Month 1', day: 14 },
+			},
+		});
+	}
 	describe('Mobile selector', () => {
 		beforeEach(() => {
 			window.innerWidth = 300;
 		});
 		it('renders table headers', () => {
-			const w = shallowMount(DaySelector, {
-				props: {
-					month: 'Month 1',
-				},
-			});
+			const w = mountComponent('Month 1');
 
 			expect(w.find('[data-test-id="table-headers"]').text()).toBe('SMTWTFS');
 		});
 		it('renders days as numbers', () => {
-			const w = shallowMount(DaySelector, {
-				props: {
-					month: 'Month 1',
-				},
-			});
+			const w = mountComponent('Month 1');
 
 			for (let i = 1; i <= 28; i++) {
 				expect(w.find(`[data-test-id="day${i}-selector"]`).text()).toBe(
@@ -29,12 +29,20 @@ describe('Day Selector', () => {
 				);
 			}
 		});
+		it('renders complete/incomplete day', () => {
+			const w = mountComponent('Month 1');
+
+			// Complete days should have line through
+			expect(w.find(`[data-test-id="day12-text"]`).classes()).toContain(
+				'text-decoration-line-through',
+			);
+			// Incomplete days should not
+			expect(w.find(`[data-test-id="day15-text"]`).classes()).not.toContain(
+				'text-decoration-line-through',
+			);
+		});
 		it('renders day information', async () => {
-			const w = shallowMount(DaySelector, {
-				props: {
-					month: 'Month 1',
-				},
-			});
+			const w = mountComponent('Month 1');
 
 			await w.find('[data-test-id="day2-selector"]').trigger('click');
 
@@ -49,22 +57,26 @@ describe('Day Selector', () => {
 			window.innerWidth = 900;
 		});
 		it('renders table headers', () => {
-			const w = shallowMount(DaySelector, {
-				props: {
-					month: 'Month 1',
-				},
-			});
+			const w = mountComponent('Month 1');
 
 			expect(w.find('[data-test-id="table-headers"]').text()).toBe(
 				'SunMonTuesWedThursFriSat',
 			);
 		});
+		it('renders complete/incomplete day', () => {
+			const w = mountComponent('Month 1');
+
+			// Complete days should have line through
+			expect(w.find(`[data-test-id="day12-text"]`).classes()).toContain(
+				'text-decoration-line-through',
+			);
+			// Incomplete days should not
+			expect(w.find(`[data-test-id="day15-text"]`).classes()).not.toContain(
+				'text-decoration-line-through',
+			);
+		});
 		it('renders cardio day with timers', () => {
-			const w = shallowMount(DaySelector, {
-				props: {
-					month: 'Month 1',
-				},
-			});
+			const w = mountComponent('Month 1');
 
 			// Rest Day does not have timers
 			expect(w.find('[data-test-id="day1-selector"]').text()).toBe('1Rest Day');
@@ -76,16 +88,8 @@ describe('Day Selector', () => {
 	});
 
 	it('renders the correct amount of days for a month', async () => {
-		const month2DaySelector = shallowMount(DaySelector, {
-			props: {
-				month: 'Month 2',
-			},
-		});
-		const month4DaySelector = shallowMount(DaySelector, {
-			props: {
-				month: 'Month 4',
-			},
-		});
+		const month2DaySelector = mountComponent('Month 2');
+		const month4DaySelector = mountComponent('Month 4');
 
 		// Month 2 has 35 days
 		for (let i = 1; i <= 35; i++) {
@@ -101,11 +105,7 @@ describe('Day Selector', () => {
 		}
 	});
 	it('emits set-day on click', async () => {
-		const w = shallowMount(DaySelector, {
-			props: {
-				month: 'Month 1',
-			},
-		});
+		const w = mountComponent('Month 1');
 
 		await w.find('[data-test-id="day2-selector"]').trigger('click');
 

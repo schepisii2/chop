@@ -2,7 +2,7 @@
 import { computed, ref, defineProps, defineEmits } from 'vue';
 import { TRAINING_CALENDAR } from '../../../models/training-days';
 
-const props = defineProps(['month']);
+const props = defineProps(['month', 'lastCompletedDay']);
 const emits = defineEmits(['set-day']);
 
 const selectedDay = ref(1);
@@ -21,6 +21,13 @@ function getTrainingDay(day) {
 	return TRAINING_CALENDAR.find(
 		(d) => d.month === props.month && d.day === day,
 	);
+}
+
+function isDayComplete(day) {
+	if (props.month.slice(-1) > props.lastCompletedDay.month.slice(-1)) {
+		return false;
+	}
+	return day <= props.lastCompletedDay.day;
 }
 
 const useMiniSelector = computed(() => {
@@ -54,7 +61,14 @@ const useMiniSelector = computed(() => {
 							:class="selectedDay === day ? 'table-dark' : 'table-light'"
 							@click="setDay(day)"
 						>
-							{{ day }}
+							<div
+								:data-test-id="'day' + day + '-text'"
+								:class="
+									isDayComplete(day) ? 'text-decoration-line-through' : ''
+								"
+							>
+								{{ day }}
+							</div>
 						</td>
 					</tr>
 				</tbody>
@@ -100,8 +114,16 @@ const useMiniSelector = computed(() => {
 						:class="selectedDay === day ? 'table-dark' : 'table-light'"
 						@click="setDay(day)"
 					>
-						<div>{{ day }}</div>
-						<div class="text-center">
+						<div
+							:data-test-id="'day' + day + '-text'"
+							:class="isDayComplete(day) ? 'text-decoration-line-through' : ''"
+						>
+							{{ day }}
+						</div>
+						<div
+							class="text-center"
+							:class="isDayComplete(day) ? 'text-decoration-line-through' : ''"
+						>
 							<strong>{{ getTrainingDay(day).type }}</strong>
 							<div v-if="getTrainingDay(day).type === 'Cardio Day'">
 								<div
