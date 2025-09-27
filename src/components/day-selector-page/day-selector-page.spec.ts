@@ -12,6 +12,17 @@ describe('Training Day Selector', () => {
 		const w = shallowMount(DaySelectorPage);
 		expect(w.findComponent('day-selector-stub').exists()).toBeTruthy();
 	});
+	it('renders no buttons for first rest day', () => {
+		const w = shallowMount(DaySelectorPage);
+
+		expect(w.find('[data-test-id="start-button"]').exists()).toBeFalsy();
+		expect(
+			w.find('[data-test-id="mark-complete-button"]').exists(),
+		).toBeFalsy();
+		expect(
+			w.find('[data-test-id="mark-incomplete-button"]').exists(),
+		).toBeFalsy();
+	});
 	it('renders start & mark complete button for incomplete days', async () => {
 		const w = shallowMount(DaySelectorPage);
 
@@ -26,10 +37,13 @@ describe('Training Day Selector', () => {
 			w.find('[data-test-id="mark-incomplete-button"]').exists(),
 		).toBeFalsy();
 	});
-	it('does not render start & mark complete button for complete days', () => {
+	it('renders mark incomplete button for complete days', async () => {
 		const w = shallowMount(DaySelectorPage);
 
-		// Month 1 Day 1 is auto-selected & marked complete
+		// Mark a day complete
+		await (w.getComponent('day-selector-stub') as any).vm.$emit('set-day', 2);
+		await w.find('[data-test-id="mark-complete-button"]').trigger('click');
+
 		expect(w.find('[data-test-id="start-button"]').exists()).toBeFalsy();
 		expect(
 			w.find('[data-test-id="mark-complete-button"]').exists(),

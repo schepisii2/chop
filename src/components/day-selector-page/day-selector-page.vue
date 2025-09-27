@@ -75,33 +75,35 @@ function markDayIncomplete() {
 			:last-completed-day="lastCompletedDay"
 			@set-day="selectedDay = $event"
 		/>
-		<div v-if="isDayComplete" class="d-flex justify-content-center m-1">
-			<button
-				type="button"
-				class="btn btn btn-outline-dark"
-				data-test-id="mark-incomplete-button"
-				@click="markDayIncomplete"
-			>
-				Mark Incomplete
-			</button>
-		</div>
-		<div v-else class="d-flex justify-content-center m-1">
-			<button
-				type="button"
-				class="btn btn-dark me-2"
-				data-test-id="start-button"
-				@click="emits('start', trainingDay)"
-			>
-				Start
-			</button>
-			<button
-				type="button"
-				class="btn btn-outline-dark"
-				data-test-id="mark-complete-button"
-				@click="markDayComplete"
-			>
-				Mark Day Complete
-			</button>
+		<div v-if="!(selectedDay === 1 && selectedMonth === 'Month 1')">
+			<div v-if="isDayComplete" class="d-flex justify-content-center m-1">
+				<button
+					type="button"
+					class="btn btn btn-outline-dark"
+					data-test-id="mark-incomplete-button"
+					@click="markDayIncomplete"
+				>
+					Mark Incomplete
+				</button>
+			</div>
+			<div v-else class="d-flex justify-content-center m-1">
+				<button
+					type="button"
+					class="btn btn-dark me-2"
+					data-test-id="start-button"
+					@click="emits('start', trainingDay)"
+				>
+					Start
+				</button>
+				<button
+					type="button"
+					class="btn btn-outline-dark"
+					data-test-id="mark-complete-button"
+					@click="markDayComplete"
+				>
+					Mark Day Complete
+				</button>
+			</div>
 		</div>
 	</div>
 </template>
