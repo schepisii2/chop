@@ -12,6 +12,9 @@ describe('Training Day Selector', () => {
 		const w = shallowMount(DaySelectorPage);
 		expect(w.findComponent('day-selector-stub').exists()).toBeTruthy();
 	});
+	/* We would need to update lastCompleteDate logic to allow users to incomplete/complete the first day.
+	 * Now, we rely on the lastCompleteDate always being populated. We also rely on there always being a day
+	 * previous to the day being marked incomplete. */
 	it('renders no buttons for first rest day', () => {
 		const w = shallowMount(DaySelectorPage);
 
